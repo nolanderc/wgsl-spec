@@ -1,0 +1,4805 @@
+{
+  "abs": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn abs ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractInt,",
+              "AbstractFloat,",
+              "i32,",
+              "u32,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S,",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "The absolute value of e. Component-wise when T is a vector. If e is a floating-point type, then the result is e with a positive sign bit. If e is an unsigned integer scalar type, then the result is e. If e is a signed integer scalar type and evaluates to the largest negative value, then the result is e."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "acos": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn acos ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the principal value, in radians, of the inverse cosine (cos -1 ) of e. That is, approximates x with 0 ≤ x ≤ π, such that cos ( x ) = e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "acosh": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn acosh ( x: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the inverse hyperbolic cosine (cosh -1 ) of x, as a hyperbolic angle. That is, approximates a with 0 ≤ a ≤ ∞, such that cosh ( a ) = x. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "all": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn all ( e: vecN<bool> ) -> bool",
+        "parameterization": {},
+        "description": "Returns true if each component of e is true."
+      },
+      {
+        "signature": "@const @must_use fn all ( e: bool ) -> bool",
+        "parameterization": {},
+        "description": "Returns e."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "any": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn any ( e: vecN<bool> ) -> bool",
+        "parameterization": {},
+        "description": "Returns true if any component of e is true."
+      },
+      {
+        "signature": "@const @must_use fn any ( e: bool ) -> bool",
+        "parameterization": {},
+        "description": "Returns e."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "array": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn array<T, N> ( e1: T, ..., eN: T ) -> array<T, N>",
+        "parameterization": {
+          "T": {
+            "description": "is concrete and constructible"
+          }
+        },
+        "description": "Construction of an array from elements. Note: array< T, N > is constructible because its element count is equal to the number of arguments to the constructor, and hence fully determined at shader-creation time."
+      },
+      {
+        "signature": "@const @must_use fn array ( e1: T, ..., eN: T ) -> array<T, N>",
+        "parameterization": {
+          "T": {
+            "description": "is constructible"
+          }
+        },
+        "description": "Construction of an array from elements. The component type is inferred from the elements' type. The size of the array is determined by the number of elements."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "arrayLength": {
+    "overloads": [
+      {
+        "signature": "@must_use fn arrayLength ( p: ptr<storage, array<E>, AM> ) -> u32",
+        "parameterization": {
+          "E": {
+            "description": "is an element type for a runtime-sized array,"
+          },
+          "access": {
+            "description": "mode AM is read or read_write"
+          }
+        },
+        "description": "Returns NRuntime, the number of elements in the runtime-sized array. See § 12.3.4 Buffer Binding Determines Runtime-Sized Array Element Count"
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "asin": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn asin ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the principal value, in radians, of the inverse sine (sin -1 ) of e. That is, approximates x with -π/2 ≤ x ≤ π/2, such that sin ( x ) = e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "asinh": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn asinh ( y: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the inverse hyperbolic sine (sinh -1 ) of y, as a hyperbolic angle. That is, approximates a such that sinh ( y ) = a. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "atan": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn atan ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the principal value, in radians, of the inverse tangent (tan -1 ) of e. That is, approximates x with − π/2 ≤ x ≤ π/2, such that tan ( x ) = e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "atan2": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn atan2 ( y: T, x: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns an angle, in radians, in the interval [-π, π] whose tangent is y ÷ x. The quadrant selected by the result depends on the signs of y and x. For example, the function may be implemented as: atan(y/x) when x > 0 atan(y/x) + π when ( x < 0) and ( y > 0) atan(y/x) - π when ( x < 0) and ( y < 0) Note: The error in the result is unbounded: When abs(x) is very small, e.g. subnormal for its type, At the origin ( x, y ) = (0,0), or When y is subnormal or infinite. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "atanh": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn atanh ( t: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the inverse hyperbolic tangent (tanh -1 ) of t, as a hyperbolic angle. That is, approximates a such that tanh ( a ) = t. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "atomicAdd": {
+    "overloads": [
+      {
+        "signature": "fn atomicAdd ( atomic_ptr: ptr<AS, atomic<T>, read_write>, v: T ) -> T",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Each function performs the following steps atomically: Load the original value pointed to by atomic_ptr. Obtains a new value by performing the operation (e.g. max) from the function name with the value v. Store the new value using atomic_ptr. Each function returns the original value stored in the atomic object."
+  },
+  "atomicAnd": {
+    "overloads": [
+      {
+        "signature": "fn atomicAnd ( atomic_ptr: ptr<AS, atomic<T>, read_write>, v: T ) -> T",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Each function performs the following steps atomically: Load the original value pointed to by atomic_ptr. Obtains a new value by performing the operation (e.g. max) from the function name with the value v. Store the new value using atomic_ptr. Each function returns the original value stored in the atomic object."
+  },
+  "atomicCompareExchangeWeak": {
+    "overloads": [
+      {
+        "signature": "fn atomicCompareExchangeWeak ( atomic_ptr: ptr<AS, atomic<T>, read_write>, cmp: T, v: T ) -> __atomic_compare_exchange_result<T>",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Note: A value cannot be explicitly declared with the type __atomic_compare_exchange_result, but a value may infer the type. Performs the following steps atomically: Load the original value pointed to by atomic_ptr. Compare the original value to the value cmp using an equality operation. Store the value v only if the result of the equality comparison was true. Returns a two member structure, where the first member, old_value, is the original value of the atomic object and the second member, exchanged, is whether or not the comparison succeeded. Note: The equality comparison may spuriously fail on some implementations. That is, the second component of the result vector may be false even if the first component of the result vector equals cmp."
+  },
+  "atomicExchange": {
+    "overloads": [
+      {
+        "signature": "fn atomicExchange ( atomic_ptr: ptr<AS, atomic<T>, read_write>, v: T ) -> T",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Atomically stores the value v in the atomic object pointed to atomic_ptr and returns the original value stored in the atomic object."
+  },
+  "atomicLoad": {
+    "overloads": [
+      {
+        "signature": "fn atomicLoad ( atomic_ptr: ptr<AS, atomic<T>, read_write> ) -> T",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Returns the atomically loaded the value pointed to by atomic_ptr. It does not modify the object."
+  },
+  "atomicMax": {
+    "overloads": [
+      {
+        "signature": "fn atomicMax ( atomic_ptr: ptr<AS, atomic<T>, read_write>, v: T ) -> T",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Each function performs the following steps atomically: Load the original value pointed to by atomic_ptr. Obtains a new value by performing the operation (e.g. max) from the function name with the value v. Store the new value using atomic_ptr. Each function returns the original value stored in the atomic object."
+  },
+  "atomicMin": {
+    "overloads": [
+      {
+        "signature": "fn atomicMin ( atomic_ptr: ptr<AS, atomic<T>, read_write>, v: T ) -> T",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Each function performs the following steps atomically: Load the original value pointed to by atomic_ptr. Obtains a new value by performing the operation (e.g. max) from the function name with the value v. Store the new value using atomic_ptr. Each function returns the original value stored in the atomic object."
+  },
+  "atomicOr": {
+    "overloads": [
+      {
+        "signature": "fn atomicOr ( atomic_ptr: ptr<AS, atomic<T>, read_write>, v: T ) -> T",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Each function performs the following steps atomically: Load the original value pointed to by atomic_ptr. Obtains a new value by performing the operation (e.g. max) from the function name with the value v. Store the new value using atomic_ptr. Each function returns the original value stored in the atomic object."
+  },
+  "atomicStore": {
+    "overloads": [
+      {
+        "signature": "fn atomicStore ( atomic_ptr: ptr<AS, atomic<T>, read_write>, v: T )",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Atomically stores the value v in the atomic object pointed to by atomic_ptr."
+  },
+  "atomicSub": {
+    "overloads": [
+      {
+        "signature": "fn atomicSub ( atomic_ptr: ptr<AS, atomic<T>, read_write>, v: T ) -> T",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Each function performs the following steps atomically: Load the original value pointed to by atomic_ptr. Obtains a new value by performing the operation (e.g. max) from the function name with the value v. Store the new value using atomic_ptr. Each function returns the original value stored in the atomic object."
+  },
+  "atomicXor": {
+    "overloads": [
+      {
+        "signature": "fn atomicXor ( atomic_ptr: ptr<AS, atomic<T>, read_write>, v: T ) -> T",
+        "parameterization": {},
+        "description": null
+      }
+    ],
+    "parameters": [],
+    "description": "Each function performs the following steps atomically: Load the original value pointed to by atomic_ptr. Obtains a new value by performing the operation (e.g. max) from the function name with the value v. Store the new value using atomic_ptr. Each function returns the original value stored in the atomic object."
+  },
+  "bitcast": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn bitcast<T> ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "description": "is a concrete numeric scalar or concrete numeric vector"
+          }
+        },
+        "description": "Identity transform. Component-wise when T is a vector. The result is e."
+      },
+      {
+        "signature": "@const @must_use fn bitcast<T> ( e: S ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "i32,",
+              "u32,",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "not",
+              "S",
+              "and",
+              "is",
+              "i32,",
+              "u32,",
+              "f32"
+            ]
+          }
+        },
+        "description": "Reinterpretation of bits as T. The result is the reintepretation of bits in e as a T value."
+      },
+      {
+        "signature": "@const @must_use fn bitcast<vecN<T>> ( e: vecN<S> ) -> vecN<T>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "i32,",
+              "u32,",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "not",
+              "S",
+              "and",
+              "is",
+              "i32,",
+              "u32,",
+              "f32"
+            ]
+          }
+        },
+        "description": "Component-wise reinterpretation of bits as T. The result is the reintepretation of bits in e as a vecN<T> value."
+      },
+      {
+        "signature": "@const @must_use fn bitcast<u32> ( e: AbstractInt ) -> u32 @const @must_use fn bitcast<vecN<u32>> ( e: vecN<AbstractInt> ) -> vecN<u32>",
+        "parameterization": {},
+        "description": "The identity operation if e can be represented as u32, otherwise it produces a shader-creation error. That is, produces the same result as u32(e). Component-wise when e is a vector."
+      },
+      {
+        "signature": "@const @must_use fn bitcast<T> ( e: vec2<f16> ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32,",
+              "u32,",
+              "f32"
+            ]
+          }
+        },
+        "description": "Component-wise reinterpretation of bits as T. The result is the reintepretation of the 32 bits in e as a T value, following the internal layout rules."
+      },
+      {
+        "signature": "@const @must_use fn bitcast<vec2<T>> ( e: vec4<f16> ) -> vec2<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32,",
+              "u32,",
+              "f32"
+            ]
+          }
+        },
+        "description": "Component-wise reinterpretation of bits as T. The result is the reintepretation of the 64 bits in e as a T value, following the internal layout rules."
+      },
+      {
+        "signature": "@const @must_use fn bitcast<vec2<f16>> ( e: T ) -> vec2<f16>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32,",
+              "u32,",
+              "f32"
+            ]
+          }
+        },
+        "description": "Component-wise reinterpretation of bits as f16. The result is the reintepretation of the 32 bits in e as an f16 value, following the internal layout rules."
+      },
+      {
+        "signature": "@const @must_use fn bitcast<vec4<f16>> ( e: vec2<T> ) -> vec4<f16>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32,",
+              "u32,",
+              "f32"
+            ]
+          }
+        },
+        "description": "Component-wise reinterpretation of bits as vec2<f16>. The result is the reintepretation of the 64 bits in e as an f16 value, following the internal layout rules."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "bool": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn bool ( e: T ) -> bool",
+        "parameterization": {
+          "T": {
+            "description": "is a scalar type."
+          }
+        },
+        "description": "Construct a bool value. If T is bool, this is an identity operation. Otherwise this is a boolean coercion. The result is false if e is a zero value (or -0.0 for floating point types) and true otherwise."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "ceil": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn ceil ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the ceiling of e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "clamp": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn clamp ( e: T, low: T, high: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractInt,",
+              "AbstractFloat,",
+              "i32,",
+              "u32,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S,",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Restricts the value of e within a range. If T is an integer type, then the result is min(max(e, low), high). If T is a floating-point type, then the result is either min(max(e, low), high), or the median of the three values e, low, high. Component-wise when T is a vector. If low is greater than high, then: It is a shader-creation error if low and high are const-expressions. It is a pipeline-creation error if low and high are override-expressions."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "cos": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn cos ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the cosine of e, where e is in radians. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "cosh": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn cosh ( a: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the hyperbolic cosine of a, where a is a hyperbolic angle. Approximates the pure mathematical function ( e a + e −a )÷2, but not necessarily computed that way. Component-wise when T is a vector"
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "countLeadingZeros": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn countLeadingZeros ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32,",
+              "u32,",
+              "vecN<i32>,",
+              "vecN<u32>"
+            ]
+          }
+        },
+        "description": "The number of consecutive 0 bits starting from the most significant bit of e, when T is a scalar type. Component-wise when T is a vector. Also known as \"clz\" in some languages."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "countOneBits": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn countOneBits ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32,",
+              "u32,",
+              "vecN<i32>,",
+              "vecN<u32>"
+            ]
+          }
+        },
+        "description": "The number of 1 bits in the representation of e. Also known as \"population count\". Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "countTrailingZeros": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn countTrailingZeros ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32,",
+              "u32,",
+              "vecN<i32>,",
+              "vecN<u32>"
+            ]
+          }
+        },
+        "description": "The number of consecutive 0 bits starting from the least significant bit of e, when T is a scalar type. Component-wise when T is a vector. Also known as \"ctz\" in some languages."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "cross": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn cross ( e1: vec3<T>, e2: vec3<T> ) -> vec3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          }
+        },
+        "description": "Returns the cross product of e1 and e2."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "degrees": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn degrees ( e1: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Converts radians to degrees, approximating e1 × 180 ÷ π. Component-wise when T is a vector"
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "determinant": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn determinant ( e: matCxC<T> ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          }
+        },
+        "description": "Returns the determinant of e."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "distance": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn distance ( e1: T, e2: T ) -> S",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the distance between e1 and e2 (e.g. length(e1 - e2) )."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "dot": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn dot ( e1: vecN<T>, e2: vecN<T> ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractInt,",
+              "AbstractFloat,",
+              "i32,",
+              "u32,",
+              "f32,",
+              "f16"
+            ]
+          }
+        },
+        "description": "Returns the dot product of e1 and e2."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "dot4I8Packed": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn dot4I8Packed ( e1: u32, e2: u32 ) -> i32",
+        "parameterization": {},
+        "description": "e1 and e2 are interpreted as vectors with four 8-bit signed integer components. Return the signed integer dot product of these two vectors. Each component is sign-extended to i32 before performing the multiply, and then the add operations are done in WGSL i32 with wrapping behaviour."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "dot4U8Packed": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn dot4U8Packed ( e1: u32, e2: u32 ) -> u32",
+        "parameterization": {},
+        "description": "e1 and e2 are interpreted as vectors with four 8-bit unsigned integer components. Return the unsigned integer dot product of these two vectors."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "dpdx": {
+    "overloads": [
+      {
+        "signature": "@must_use fn dpdx ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32",
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Partial derivative of e with respect to window x coordinates. The result is the same as either dpdxFine(e) or dpdxCoarse(e). Returns an indeterminate value if called in non-uniform control flow."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "dpdxCoarse": {
+    "overloads": [
+      {
+        "signature": "@must_use fn dpdxCoarse ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32",
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Returns the partial derivative of e with respect to window x coordinates using local differences. This may result in fewer unique positions than dpdxFine(e). Returns an indeterminate value if called in non-uniform control flow."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "dpdxFine": {
+    "overloads": [
+      {
+        "signature": "@must_use fn dpdxFine ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32",
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Returns the partial derivative of e with respect to window x coordinates. Returns an indeterminate value if called in non-uniform control flow."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "dpdy": {
+    "overloads": [
+      {
+        "signature": "@must_use fn dpdy ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32",
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Partial derivative of e with respect to window y coordinates. The result is the same as either dpdyFine(e) or dpdyCoarse(e). Returns an indeterminate value if called in non-uniform control flow."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "dpdyCoarse": {
+    "overloads": [
+      {
+        "signature": "@must_use fn dpdyCoarse ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32",
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Returns the partial derivative of e with respect to window y coordinates using local differences. This may result in fewer unique positions than dpdyFine(e). Returns an indeterminate value if called in non-uniform control flow."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "dpdyFine": {
+    "overloads": [
+      {
+        "signature": "@must_use fn dpdyFine ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32",
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Returns the partial derivative of e with respect to window y coordinates. Returns an indeterminate value if called in non-uniform control flow."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "exp": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn exp ( e1: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the natural exponentiation of e1 (e.g. e e1 ). Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "exp2": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn exp2 ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns 2 raised to the power e (e.g. 2 e ). Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "extractBits": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn extractBits ( e: T, offset: u32, count: u32 ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32",
+              "vecN<i32>"
+            ]
+          }
+        },
+        "description": "Reads bits from an integer, with sign extension. When T is a scalar type, then: w is the bit width of T o = min(offset, w) c = min(count, w - o) The result is 0 if c is 0. Otherwise, bits 0..c - 1 of the result are copied from bits o..o + c - 1 of e. Other bits of the result are the same as bit c - 1 of the result. Component-wise when T is a vector. If count + offset is greater than w, then: It is a shader-creation error if count and offset are const-expressions. It is a pipeline-creation error if count and offset are override-expressions."
+      },
+      {
+        "signature": "@const @must_use fn extractBits ( e: T, offset: u32, count: u32 ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "u32",
+              "vecN<u32>"
+            ]
+          }
+        },
+        "description": "Reads bits from an integer, without sign extension. When T is a scalar type, then: w is the bit width of T o = min(offset, w) c = min(count, w - o) The result is 0 if c is 0. Otherwise, bits 0..c - 1 of the result are copied from bits o..o + c - 1 of e. Other bits of the result are 0. Component-wise when T is a vector. If count + offset is greater than w, then: It is a shader-creation error if count and offset are const-expressions. It is a pipeline-creation error if count and offset are override-expressions."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "f16": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn f16 ( e: T ) -> f16",
+        "parameterization": {
+          "T": {
+            "description": "is a scalar type"
+          }
+        },
+        "description": "Construct an f16 value. If T is f16, this is an identity operation. If T is a numeric scalar (other than f16 ), e is converted to f16 (including invalid conversions). If T is bool, the result is 1.0h if e is true and 0.0h otherwise."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "f32": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn f32 ( e: T ) -> f32",
+        "parameterization": {
+          "T": {
+            "description": "is a concrete scalar type"
+          }
+        },
+        "description": "Construct an f32 value. If T is f32, this is an identity operation. If T is a numeric scalar (other than f32 ), e is converted to f32 (including invalid conversions). If T is bool, the result is 1.0f if e is true and 0.0f otherwise."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "faceForward": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn faceForward ( e1: T, e2: T, e3: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "vecN<AbstractFloat>,",
+              "vecN<f32>,",
+              "vecN<f16>"
+            ]
+          }
+        },
+        "description": "Returns e1 if dot(e2, e3) is negative, and -e1 otherwise."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "firstLeadingBit": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn firstLeadingBit ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32",
+              "vecN<i32>"
+            ]
+          }
+        },
+        "description": "For scalar T, the result is: -1 if e is 0 or -1. Otherwise the position of the most significant bit in e that is different from e ’s sign bit. Component-wise when T is a vector."
+      },
+      {
+        "signature": "@const @must_use fn firstLeadingBit ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "u32",
+              "vecN<u32>"
+            ]
+          }
+        },
+        "description": "For scalar T, the result is: T(-1) if e is zero. Otherwise the position of the most significant 1 bit in e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "firstTrailingBit": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn firstTrailingBit ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32,",
+              "u32,",
+              "vecN<i32>,",
+              "vecN<u32>"
+            ]
+          }
+        },
+        "description": "For scalar T, the result is: T(-1) if e is zero. Otherwise the position of the least significant 1 bit in e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "floor": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn floor ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the floor of e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "fma": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn fma ( e1: T, e2: T, e3: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns e1 * e2 + e3. Component-wise when T is a vector. Note: The name fma is short for \"fused multiply add\". Note: The IEEE-754 fusedMultiplyAdd operation computes the intermediate results as if with unbounded range and precision, and only the final result is rounded to the destination type. However, the § 14.6.2 Floating Point Accuracy rule for fma allows an implementation which performs an ordinary multiply to the target type followed by an ordinary addition. In this case the intermediate values may overflow or lose accuracy, and the overall operation is not \"fused\" at all."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "fract": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn fract ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the fractional part of e, computed as e - floor(e). Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "frexp": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn frexp ( e: T ) -> __frexp_result_f32",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32"
+            ]
+          }
+        },
+        "description": "Splits e into a fraction and an exponent. When e is zero, the fraction is zero. When e is non-zero and normal, e = fraction * 2 exponent, where the fraction is in the range [0.5, 1.0) or (-1.0, -0.5]. Otherwise, e is denormalized, NaN, or infinite. The result fraction and exponent are indeterminate values. Returns the __frexp_result_f32 built-in structure, defined as follows: struct __frexp_result_f32 { fract: f32, // fraction part exp: i32 // exponent part } Note: A mnemonic for the name frexp is \" fr action and exp onent\"."
+      },
+      {
+        "signature": "@const @must_use fn frexp ( e: T ) -> __frexp_result_f16",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f16"
+            ]
+          }
+        },
+        "description": "Splits e into a fraction and an exponent. When e is zero, the fraction is zero. When e is non-zero and normal, e = fraction * 2 exponent, where the fraction is in the range [0.5, 1.0) or (-1.0, -0.5]. Otherwise, e is denormalized, NaN, or infinite. The result fraction and exponent are indeterminate values. Returns the __frexp_result_f16 built-in structure, defined as if as follows: struct __frexp_result_f16 { fract: f16, // fraction part exp: i32 // exponent part } Note: A mnemonic for the name frexp is \" fr action and exp onent\"."
+      },
+      {
+        "signature": "@const @must_use fn frexp ( e: T ) -> __frexp_result_abstract",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat"
+            ]
+          }
+        },
+        "description": "Splits e into a fraction and an exponent. When e is zero, the fraction is zero. When e is non-zero and normal, e = fraction * 2 exponent, where the fraction is in the range [0.5, 1.0) or (-1.0, -0.5]. When e is denormalized, the fraction and exponent are have unbounded error. The fraction may be any AbstractFloat value, and the exponent may be any AbstractInt value. Note: AbstractFloat expressions resulting in infinity or NaN cause a shader-creation error. Returns the __frexp_result_abstract built-in structure, defined as follows: struct __frexp_result_abstract { fract: AbstractFloat, // fraction part exp: AbstractInt // exponent part } Note: A mnemonic for the name frexp is \" fr action and exp onent\"."
+      },
+      {
+        "signature": "@const @must_use fn frexp ( e: T ) -> __frexp_result_vecN_f32",
+        "parameterization": {
+          "T": {
+            "types": [
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Splits components ei of e into a fraction and an exponent. When ei is zero, the fraction is zero. When ei is non-zero and normal, ei = fraction * 2 exponent, where the fraction is in the range [0.5, 1.0) or (-1.0, -0.5]. Otherwise, ei is NaN or infinite. The result fraction and exponent are indeterminate values. Returns the __frexp_result_vecN_f32 built-in structure, defined as follows: struct __frexp_result_vecN_f32 { fract: vecN < f32 >, // fraction part exp: vecN < i32 > // exponent part } Note: A mnemonic for the name frexp is \" fr action and exp onent\"."
+      },
+      {
+        "signature": "@const @must_use fn frexp ( e: T ) -> __frexp_result_vecN_f16",
+        "parameterization": {
+          "T": {
+            "types": [
+              "vecN<f16>"
+            ]
+          }
+        },
+        "description": "Splits components ei of e into a fraction and an exponent. When ei is zero, the fraction is zero. When ei is non-zero and normal, ei = fraction * 2 exponent, where the fraction is in the range [0.5, 1.0) or (-1.0, -0.5]. Otherwise, ei is NaN or infinite. The result fraction and exponent are indeterminate values. Returns the __frexp_result_vecN_f16 built-in structure, defined as if as follows: struct __frexp_result_vecN_f16 { fract: vecN < f16 >, // fraction part exp: vecN < i32 > // exponent part } Note: A mnemonic for the name frexp is \" fr action and exp onent\"."
+      },
+      {
+        "signature": "@const @must_use fn frexp ( e: T ) -> __frexp_result_vecN_abstract",
+        "parameterization": {
+          "T": {
+            "types": [
+              "vecN<AbstractFloat>"
+            ]
+          }
+        },
+        "description": "Splits components ei of e into a fraction and an exponent. When ei is zero, the fraction is zero. When ei is non-zero and normal, ei = fraction * 2 exponent, where the fraction is in the range [0.5, 1.0) or (-1.0, -0.5]. When ei is denormalized, the fraction and exponent are have unbounded error. The fraction may be any AbstractFloat value, and the exponent may be any AbstractInt value. Note: AbstractFloat expressions resulting in infinity or NaN cause a shader-creation error. Returns the __frexp_result_vecN_abstract built-in structure, defined as follows: struct __frexp_result_vecN_abstract { fract: vecN < AbstractFloat >, // fraction part exp: vecN < AbstractInt > // exponent part } Note: A mnemonic for the name frexp is \" fr action and exp onent\"."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "fwidth": {
+    "overloads": [
+      {
+        "signature": "@must_use fn fwidth ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32",
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Returns abs(dpdx(e)) + abs(dpdy(e)). Returns an indeterminate value if called in non-uniform control flow."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "fwidthCoarse": {
+    "overloads": [
+      {
+        "signature": "@must_use fn fwidthCoarse ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32",
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Returns abs(dpdxCoarse(e)) + abs(dpdyCoarse(e)). Returns an indeterminate value if called in non-uniform control flow."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "fwidthFine": {
+    "overloads": [
+      {
+        "signature": "@must_use fn fwidthFine ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32",
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Returns abs(dpdxFine(e)) + abs(dpdyFine(e)). Returns an indeterminate value if called in non-uniform control flow."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "i32": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn i32 ( e: T ) -> i32",
+        "parameterization": {
+          "T": {
+            "description": "is a scalar type"
+          }
+        },
+        "description": "Construct an i32 value. If T is i32, this is an identity operation. If T is u32, this is a reinterpretation of bits (i.e. the result is the unique value in i32 that has the same bit pattern as e ). If T is a floating point type, e is converted to i32, rounding towards zero. If T is bool, the result is 1i if e is true and 0i otherwise. If T is an AbstractInt, this is an identity operation if e can be represented in i32, otherwise it produces a shader-creation error."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "insertBits": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn insertBits ( e: T, newbits: T, offset: u32, count: u32 ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32,",
+              "u32,",
+              "vecN<i32>,",
+              "vecN<u32>"
+            ]
+          }
+        },
+        "description": "Sets bits in an integer. When T is a scalar type, then: w is the bit width of T o = min(offset, w) c = min(count, w - o) The result is e if c is 0. Otherwise, bits o..o + c - 1 of the result are copied from bits 0..c - 1 of newbits. Other bits of the result are copied from e. Component-wise when T is a vector. If count + offset is greater than w, then: It is a shader-creation error if count and offset are const-expressions. It is a pipeline-creation error if count and offset are override-expressions."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "inverseSqrt": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn inverseSqrt ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the reciprocal of sqrt(e). Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "ldexp": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn ldexp ( e1: T, e2: I ) -> T",
+        "parameterization": {
+          "I": {
+            "description": "is a vector if and only if T is a vector"
+          },
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "description": "can only be abstract if I is also abstract and vice versa"
+          }
+        },
+        "description": "Returns e1 * 2 e2, except: The result may be zero if e2 + bias ≤ 0. If e2 > bias + 1 It is a shader-creation error if e2 is a const-expression. It is a pipeline-creation error if e2 is an override-expression. Otherwise the result is an indeterminate value for T. Here, bias is the exponent bias of the floating point format: 15 for f16 127 for f32 1023 for AbstractFloat, when AbstractFloat is IEEE-754 binary64 If x is zero or a finite normal value for its type, then: x = ldexp(frexp(x).fract, frexp(x).exp) Component-wise when T is a vector. Note: A mnemonic for the name ldexp is \"load exponent\". The name may have been taken from the corresponding instruction in the floating point unit of the PDP-11."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "length": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn length ( e: T ) -> S",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the length of e. Evaluates to the absolute value of e if T is scalar. Evaluates to sqrt(e[0] 2 + e[1] 2 + ...) if T is a vector type. Note: The scalar case may be evaluated as sqrt(e * e), which may unnecessarily overflow or lose accuracy."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "log": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn log ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the natural logarithm of e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "log2": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn log2 ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the base-2 logarithm of e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "mat2x2": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn mat2x2<T> ( e: mat2x2<S> ) -> mat2x2<T> @const @must_use fn mat2x2 ( e: mat2x2<S> ) -> mat2x2<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Constructor for a 2x2 column-major matrix. If T does not match S, a conversion occurs."
+      },
+      {
+        "signature": "@const @must_use fn mat2x2<T> ( v1: vec2<T>, v2: vec2<T> ) -> mat2x2<T> @const @must_use fn mat2x2 ( v1: vec2<T>, v2: vec2<T> ) -> mat2x2<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 2x2 column-major matrix from column vectors."
+      },
+      {
+        "signature": "@const @must_use fn mat2x2<T> ( e1: T, e2: T, e3: T, e4: T ) -> mat2x2<T> @const @must_use fn mat2x2 ( e1: T, e2: T, e3: T, e4: T ) -> mat2x2<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 2x2 column-major matrix from elements. Same as mat2x2(vec2(e1,e2), vec2(e3,e4))."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "mat2x3": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn mat2x3<T> ( e: mat2x3<S> ) -> mat2x3<T> @const @must_use fn mat2x3 ( e: mat2x3<S> ) -> mat2x3<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Constructor for a 2x3 column-major matrix. If T does not match S, a conversion occurs."
+      },
+      {
+        "signature": "@const @must_use fn mat2x3<T> ( v1: vec3<T>, v2: vec3<T> ) -> mat2x3<T> @const @must_use fn mat2x3 ( v1: vec3<T>, v2: vec3<T> ) -> mat2x3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 2x3 column-major matrix from column vectors."
+      },
+      {
+        "signature": "@const @must_use fn mat2x3<T> ( e1: T, ..., e6: T ) -> mat2x3<T> @const @must_use fn mat2x3 ( e1: T, ..., e6: T ) -> mat2x3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 2x3 column-major matrix from elements. Same as mat2x3(vec3(e1,e2,e3), vec3(e4,e5,e6))."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "mat2x4": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn mat2x4<T> ( e: mat2x4<S> ) -> mat2x4<T> @const @must_use fn mat2x4 ( e: mat2x4<S> ) -> mat2x4<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Constructor for a 2x4 column-major matrix. If T does not match S, a conversion occurs."
+      },
+      {
+        "signature": "@const @must_use fn mat2x4<T> ( v1: vec4<T>, v2: vec4<T> ) -> mat2x4<T> @const @must_use fn mat2x4 ( v1: vec4<T>, v2: vec4<T> ) -> mat2x4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 2x4 column-major matrix from column vectors."
+      },
+      {
+        "signature": "@const @must_use fn mat2x4<T> ( e1: T, ..., e8: T ) -> mat2x4<T> @const @must_use fn mat2x4 ( e1: T, ..., e8: T ) -> mat2x4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 2x4 column-major matrix from elements. Same as mat2x4(vec4(e1,e2,e3,e4), vec4(e5,e6,e7,e8))."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "mat3x2": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn mat3x2<T> ( e: mat3x2<S> ) -> mat3x2<T> @const @must_use fn mat3x2 ( e: mat3x2<S> ) -> mat3x2<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Constructor for a 3x2 column-major matrix. If T does not match S, a conversion occurs."
+      },
+      {
+        "signature": "@const @must_use fn mat3x2<T> ( v1: vec2<T>, v2: vec2<T>, v3: vec2<T> ) -> mat3x2<T> @const @must_use fn mat3x2 ( v1: vec2<T>, v2: vec2<T>, v3: vec2<T> ) -> mat3x2<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 3x2 column-major matrix from column vectors."
+      },
+      {
+        "signature": "@const @must_use fn mat3x2<T> ( e1: T, ..., e6: T ) -> mat3x2<T> @const @must_use fn mat3x2 ( e1: T, ..., e6: T ) -> mat3x2<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 3x2 column-major matrix from elements. Same as mat3x2(vec2(e1,e2), vec2(e3,e4), vec2(e5,e6))."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "mat3x3": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn mat3x3<T> ( e: mat3x3<S> ) -> mat3x3<T> @const @must_use fn mat3x3 ( e: mat3x3<S> ) -> mat3x3<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Constructor for a 3x3 column-major matrix. If T does not match S, a conversion occurs."
+      },
+      {
+        "signature": "@const @must_use fn mat3x3<T> ( v1: vec3<T>, v2: vec3<T>, v3: vec3<T> ) -> mat3x3<T> @const @must_use fn mat3x3 ( v1: vec3<T>, v2: vec3<T>, v3: vec3<T> ) -> mat3x3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 3x3 column-major matrix from column vectors."
+      },
+      {
+        "signature": "@const @must_use fn mat3x3<T> ( e1: T, ..., e9: T ) -> mat3x3<T> @const @must_use fn mat3x3 ( e1: T, ..., e9: T ) -> mat3x3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 3x3 column-major matrix from elements. Same as mat3x3(vec3(e1,e2,e3), vec3(e4,e4,e6), vec3(e7,e8,e9))."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "mat3x4": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn mat3x4<T> ( e: mat3x4<S> ) -> mat3x4<T> @const @must_use fn mat3x4 ( e: mat3x4<S> ) -> mat3x4<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Constructor for a 3x4 column-major matrix. If T does not match S, a conversion occurs."
+      },
+      {
+        "signature": "@const @must_use fn mat3x4<T> ( v1: vec4<T>, v2: vec4<T>, v3: vec4<T> ) -> mat3x4<T> @const @must_use fn mat3x4 ( v1: vec4<T>, v2: vec4<T>, v3: vec4<T> ) -> mat3x4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 3x4 column-major matrix from column vectors."
+      },
+      {
+        "signature": "@const @must_use fn mat3x4<T> ( e1: T, ..., e12: T ) -> mat3x4<T> @const @must_use fn mat3x4 ( e1: T, ..., e12: T ) -> mat3x4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 3x4 column-major matrix from elements. Same as mat3x4(vec4(e1,e2,e3,e4), vec4(e5,e6,e7,e8), vec4(e9,e10,e11,e12))."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "mat4x2": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn mat4x2<T> ( e: mat4x2<S> ) -> mat4x2<T> @const @must_use fn mat4x2 ( e: mat4x2<S> ) -> mat4x2<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Constructor for a 4x2 column-major matrix. If T does not match S, a conversion occurs."
+      },
+      {
+        "signature": "@const @must_use fn mat4x2<T> ( v1: vec2<T>, v2: vec2<T>, v3: vec2<T>, v4: vec2<T> ) -> mat4x2<T> @const @must_use fn mat4x2 ( v1: vec2<T>, v2: vec2<T>, v3: vec2<T>, v4: vec2<T> ) -> mat4x2<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 4x2 column-major matrix from column vectors."
+      },
+      {
+        "signature": "@const @must_use fn mat4x2<T> ( e1: T, ..., e8: T ) -> mat4x2<T> @const @must_use fn mat4x2 ( e1: T, ..., e8: T ) -> mat4x2<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 4x2 column-major matrix from elements. Same as mat4x2(vec2(e1,e2), vec2(e3,e4), vec2(e5,e6), vec2(e7,e8))."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "mat4x3": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn mat4x3<T> ( e: mat4x3<S> ) -> mat4x3<T> @const @must_use fn mat4x3 ( e: mat4x3<S> ) -> mat4x3<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Constructor for a 4x3 column-major matrix. If T does not match S, a conversion occurs."
+      },
+      {
+        "signature": "@const @must_use fn mat4x3<T> ( v1: vec3<T>, v2: vec3<T>, v3: vec3<T>, v4: vec3<T> ) -> mat4x3<T> @const @must_use fn mat4x3 ( v1: vec3<T>, v2: vec3<T>, v3: vec3<T>, v4: vec3<T> ) -> mat4x3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 4x3 column-major matrix from column vectors."
+      },
+      {
+        "signature": "@const @must_use fn mat4x3<T> ( e1: T, ..., e12: T ) -> mat4x3<T> @const @must_use fn mat4x3 ( e1: T, ..., e12: T ) -> mat4x3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 4x3 column-major matrix from elements. Same as mat4x3(vec3(e1,e2,e3), vec3(e4,e5,e6), vec3(e7,e8,e9), vec3(e10,e11,e12))."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "mat4x4": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn mat4x4<T> ( e: mat4x4<S> ) -> mat4x4<T> @const @must_use fn mat4x4 ( e: mat4x4<S> ) -> mat4x4<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Constructor for a 4x4 column-major matrix. If T does not match S, a conversion occurs."
+      },
+      {
+        "signature": "@const @must_use fn mat4x4<T> ( v1: vec4<T>, v2: vec4<T>, v3: vec4<T>, v4: vec4<T> ) -> mat4x4<T> @const @must_use fn mat4x4 ( v1: vec4<T>, v2: vec4<T>, v3: vec4<T>, v4: vec4<T> ) -> mat4x4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 4x4 column-major matrix from column vectors."
+      },
+      {
+        "signature": "@const @must_use fn mat4x4<T> ( e1: T, ..., e16: T ) -> mat4x4<T> @const @must_use fn mat4x4 ( e1: T, ..., e16: T ) -> mat4x4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat",
+              "f16",
+              "f32"
+            ]
+          }
+        },
+        "description": "Construct a 4x4 column-major matrix from elements. Same as mat4x4(vec4(e1,e2,e3,e4), vec4(e5,e6,e7,e8), vec4(e9,e10,e11,e12), vec4(e13,e14,e15,e16))."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "max": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn max ( e1: T, e2: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractInt,",
+              "AbstractFloat,",
+              "i32,",
+              "u32,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S,",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns e2 if e1 is less than e2, and e1 otherwise. Component-wise when T is a vector. If e1 and e2 are floating-point values, then: If both e1 and e2 are denormalized, then the result may be either value. If one operand is a NaN, the other is returned. If both operands are NaNs, a NaN is returned."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "min": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn min ( e1: T, e2: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractInt,",
+              "AbstractFloat,",
+              "i32,",
+              "u32,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S,",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns e2 if e2 is less than e1, and e1 otherwise. Component-wise when T is a vector. If e1 and e2 are floating-point values, then: If both e1 and e2 are denormalized, then the result may be either value. If one operand is a NaN, the other is returned. If both operands are NaNs, a NaN is returned."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "mix": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn mix ( e1: T, e2: T, e3: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the linear blend of e1 and e2 (e.g. e1 * (1 - e3) + e2 * e3 ). Component-wise when T is a vector."
+      },
+      {
+        "signature": "@const @must_use fn mix ( e1: T2, e2: T2, e3: T ) -> T2",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T2": {
+            "types": [
+              "vecN<T>"
+            ]
+          }
+        },
+        "description": "Returns the component-wise linear blend of e1 and e2, using scalar blending factor e3 for each component. Same as mix(e1, e2, T2(e3))."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "modf": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn modf ( e: T ) -> __modf_result_f32",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32"
+            ]
+          }
+        },
+        "description": "Splits e into fractional and whole number parts. The whole part is trunc ( e ), and the fractional part is e - trunc ( e ). Returns the __modf_result_f32 built-in structure, defined as follows: struct __modf_result_f32 { fract: f32, // fractional part whole: f32 // whole part }"
+      },
+      {
+        "signature": "@const @must_use fn modf ( e: T ) -> __modf_result_f16",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f16"
+            ]
+          }
+        },
+        "description": "Splits e into fractional and whole number parts. The whole part is trunc ( e ), and the fractional part is e - trunc ( e ). Returns the __modf_result_f16 built-in structure, defined as if as follows: struct __modf_result_f16 { fract: f16, // fractional part whole: f16 // whole part }"
+      },
+      {
+        "signature": "@const @must_use fn modf ( e: T ) -> __modf_result_abstract",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat"
+            ]
+          }
+        },
+        "description": "Splits e into fractional and whole number parts. The whole part is trunc ( e ), and the fractional part is e - trunc ( e ). Returns the __modf_result_abstract built-in structure, defined as follows: struct __modf_result_abstract { fract: AbstractFloat, // fractional part whole: AbstractFloat // whole part }"
+      },
+      {
+        "signature": "@const @must_use fn modf ( e: T ) -> __modf_result_vecN_f32",
+        "parameterization": {
+          "T": {
+            "types": [
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Splits the components of e into fractional and whole number parts. The i ’th component of the whole and fractional parts equal the whole and fractional parts of modf(e[i]). Returns the __modf_result_vecN_f32 built-in structure, defined as follows: struct __modf_result_vecN_f32 { fract: vecN < f32 >, // fractional part whole: vecN < f32 > // whole part }"
+      },
+      {
+        "signature": "@const @must_use fn modf ( e: T ) -> __modf_result_vecN_f16",
+        "parameterization": {
+          "T": {
+            "types": [
+              "vecN<f16>"
+            ]
+          }
+        },
+        "description": "Splits the components of e into fractional and whole number parts. The i ’th component of the whole and fractional parts equal the whole and fractional parts of modf(e[i]). Returns the __modf_result_vecN_f16 built-in structure, defined as if as follows: struct __modf_result_vecN_f16 { fract: vecN < f16 >, // fractional part whole: vecN < f16 > // whole part }"
+      },
+      {
+        "signature": "@const @must_use fn modf ( e: T ) -> __modf_result_vecN_abstract",
+        "parameterization": {
+          "T": {
+            "types": [
+              "vecN<AbstractFloat>"
+            ]
+          }
+        },
+        "description": "Splits the components of e into fractional and whole number parts. The i ’th component of the whole and fractional parts equal the whole and fractional parts of modf(e[i]). Returns the __modf_result_vecN_abstract built-in structure, defined as follows: struct __modf_result_vecN_abstract { fract: vecN < AbstractFloat >, // fractional part whole: vecN < AbstractFloat > // whole part }"
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "normalize": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn normalize ( e: vecN<T> ) -> vecN<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          }
+        },
+        "description": "Returns a unit vector in the same direction as e."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "pack2x16float": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn pack2x16float ( e: vec2<f32> ) -> u32",
+        "parameterization": {},
+        "description": "Converts two floating point values to half-precision floating point numbers, and then combines them into one u32 value. Component e[i] of the input is converted to a IEEE-754 binary16 value, which is then placed in bits 16 × i through 16 × i + 15 of the result. See § 14.6.4 Floating Point Conversion. If either e[0] or e[1] is outside the finite range of binary16 then: It is a shader-creation error if e is a const-expression. It is a pipeline-creation error if e is an override-expression. Otherwise the result is an indeterminate value for u32."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "pack2x16snorm": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn pack2x16snorm ( e: vec2<f32> ) -> u32",
+        "parameterization": {},
+        "description": "Converts two normalized floating point values to 16-bit signed integers, and then combines them into one u32 value. Component e[i] of the input is converted to a 16-bit twos complement integer value ⌊ 0.5 + 32767 × min(1, max(-1, e[i])) ⌋ which is then placed in bits 16 × i through 16 × i + 15 of the result."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "pack2x16unorm": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn pack2x16unorm ( e: vec2<f32> ) -> u32",
+        "parameterization": {},
+        "description": "Converts two normalized floating point values to 16-bit unsigned integers, and then combines them into one u32 value. Component e[i] of the input is converted to a 16-bit unsigned integer value ⌊ 0.5 + 65535 × min(1, max(0, e[i])) ⌋ which is then placed in bits 16 × i through 16 × i + 15 of the result."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "pack4x8snorm": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn pack4x8snorm ( e: vec4<f32> ) -> u32",
+        "parameterization": {},
+        "description": "Converts four normalized floating point values to 8-bit signed integers, and then combines them into one u32 value. Component e[i] of the input is converted to an 8-bit twos complement integer value ⌊ 0.5 + 127 × min(1, max(-1, e[i])) ⌋ which is then placed in bits 8 × i through 8 × i + 7 of the result."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "pack4x8unorm": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn pack4x8unorm ( e: vec4<f32> ) -> u32",
+        "parameterization": {},
+        "description": "Converts four normalized floating point values to 8-bit unsigned integers, and then combines them into one u32 value. Component e[i] of the input is converted to an 8-bit unsigned integer value ⌊ 0.5 + 255 × min(1, max(0, e[i])) ⌋ which is then placed in bits 8 × i through 8 × i + 7 of the result."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "pack4xI8": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn pack4xI8 ( e: vec4<i32> ) -> u32",
+        "parameterization": {},
+        "description": "Pack the lower 8 bits of each component of e into a u32 value and drop all the unused bits."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "pack4xI8Clamp": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn pack4xI8Clamp ( e: vec4<i32> ) -> u32",
+        "parameterization": {},
+        "description": "Clamp each component of e in the range [-128, 127] and then pack the lower 8 bits of each component into a u32 value."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "pack4xU8": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn pack4xU8 ( e: vec4<u32> ) -> u32",
+        "parameterization": {},
+        "description": "Pack the lower 8 bits of each component of e into a u32 value and drop all the unused bits."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "pack4xU8Clamp": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn pack4xU8Clamp ( e: vec4<u32> ) -> u32",
+        "parameterization": {},
+        "description": "Clamp each component of e in the range of [0, 255] and then pack the lower 8 bits of each component into a u32 value."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "pow": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn pow ( e1: T, e2: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns e1 raised to the power e2. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "quantizeToF16": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn quantizeToF16 ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "f32",
+              "vecN<f32>"
+            ]
+          }
+        },
+        "description": "Quantizes a 32-bit floating point value e as if e were converted to a IEEE 754 binary16 value, and then converted back to a IEEE 754 binary32 value. If e is outside the finite range of binary16, then: It is a shader-creation error if e is a const-expression. It is a pipeline-creation error if e is an override-expression. Otherwise the result is an indeterminate value for T. The intermediate binary16 value may be flushed to zero, i.e. the final result may be zero if the intermediate binary16 value is denormalized. See § 14.6.4 Floating Point Conversion. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "radians": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn radians ( e1: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Converts degrees to radians, approximating e1 × π ÷ 180. Component-wise when T is a vector"
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "reflect": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn reflect ( e1: T, e2: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "vecN<AbstractFloat>,",
+              "vecN<f32>,",
+              "vecN<f16>"
+            ]
+          }
+        },
+        "description": "For the incident vector e1 and surface orientation e2, returns the reflection direction e1 - 2 * dot(e2, e1) * e2."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "refract": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn refract ( e1: T, e2: T, e3: I ) -> T",
+        "parameterization": {
+          "I": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "vecN<I>"
+            ]
+          }
+        },
+        "description": "For the incident vector e1 and surface normal e2, and the ratio of indices of refraction e3, let k = 1.0 - e3 * e3 * (1.0 - dot(e2, e1) * dot(e2, e1)). If k < 0.0, returns the refraction vector 0.0, otherwise return the refraction vector e3 * e1 - (e3 * dot(e2, e1) + sqrt(k)) * e2."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "reverseBits": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn reverseBits ( e: T ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "i32,",
+              "u32,",
+              "vecN<i32>,",
+              "vecN<u32>"
+            ]
+          }
+        },
+        "description": "Reverses the bits in e: The bit at position k of the result equals the bit at position 31 -k of e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "round": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn round ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Result is the integer k nearest to e, as a floating point value. When e lies halfway between integers k and k + 1, the result is k when k is even, and k + 1 when k is odd. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "saturate": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn saturate ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns clamp(e, 0.0, 1.0). Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "select": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn select ( f: T, t: T, cond: bool ) -> T",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar",
+              "vector"
+            ]
+          }
+        },
+        "description": "Returns t when cond is true, and f otherwise."
+      },
+      {
+        "signature": "@const @must_use fn select ( f: vecN<T>, t: vecN<T>, cond: vecN<bool> ) -> vecN<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise selection. Result component i is evaluated as select(f[i], t[i], cond[i])."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "sign": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn sign ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractInt,",
+              "AbstractFloat,",
+              "i32,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S,",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Result is: 1 when e > 0 0 when e = 0 -1 when e < 0 Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "sin": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn sin ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the sine of e, where e is in radians. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "sinh": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn sinh ( a: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the hyperbolic sine of a, where a is a hyperbolic angle. Approximates the pure mathematical function ( e a − e −a )÷2, but not necessarily computed that way. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "smoothstep": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn smoothstep ( low: T, high: T, x: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the smooth Hermite interpolation between 0 and 1. Component-wise when T is a vector. For scalar T, the result is t * t * (3.0 - 2.0 * t), where t = clamp((x - low) / (high - low), 0.0, 1.0). If low >= high: It is a shader-creation error if low and high are const-expressions. It is a pipeline-creation error if low and high are override-expressions."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "sqrt": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn sqrt ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the square root of e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "step": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn step ( edge: T, x: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns 1.0 if edge ≤ x, and 0.0 otherwise. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "storageBarrier": {
+    "overloads": [
+      {
+        "signature": "fn storageBarrier ()",
+        "parameterization": {},
+        "description": "Executes a control barrier synchronization function that affects memory and atomic operations in the storage address space."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "tan": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn tan ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the tangent of e, where e is in radians. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "tanh": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn tanh ( a: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns the hyperbolic tangent of a, where a is a hyperbolic angle. Approximates the pure mathematical function ( e a − e −a ) ÷ ( e a + e −a ) but not necessarily computed that way. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "textureBarrier": {
+    "overloads": [
+      {
+        "signature": "fn textureBarrier ()",
+        "parameterization": {},
+        "description": "Executes a control barrier synchronization function that affects memory operations in the handle address space."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "textureDimensions": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureDimensions ( t: T ) -> u32",
+        "parameterization": {
+          "A": {
+            "description": "is an access mode"
+          },
+          "F": {
+            "description": "is a texel format"
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "texture_1d<ST>",
+              "texture_storage_1d<F,A>"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureDimensions ( t: T, level: L ) -> u32",
+        "parameterization": {
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "texture_1d<ST>"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureDimensions ( t: T ) -> vec2<u32>",
+        "parameterization": {
+          "A": {
+            "description": "is an access mode"
+          },
+          "F": {
+            "description": "is a texel format"
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "texture_2d<ST>",
+              "texture_2d_array<ST>",
+              "texture_cube<ST>",
+              "texture_cube_array<ST>",
+              "texture_multisampled_2d<ST>",
+              "texture_depth_2d",
+              "texture_depth_2d_array",
+              "texture_depth_cube",
+              "texture_depth_cube_array",
+              "texture_depth_multisampled_2d",
+              "texture_storage_2d<F,A>",
+              "texture_storage_2d_array<F,A>",
+              "texture_external"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureDimensions ( t: T, level: L ) -> vec2<u32>",
+        "parameterization": {
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "texture_2d<ST>",
+              "texture_2d_array<ST>",
+              "texture_cube<ST>",
+              "texture_cube_array<ST>",
+              "texture_depth_2d",
+              "texture_depth_2d_array",
+              "texture_depth_cube",
+              "texture_depth_cube_array"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureDimensions ( t: T ) -> vec3<u32>",
+        "parameterization": {
+          "A": {
+            "description": "is an access mode"
+          },
+          "F": {
+            "description": "is a texel format"
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "texture_3d<ST>",
+              "texture_storage_3d<F,A>"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureDimensions ( t: T, level: L ) -> vec3<u32>",
+        "parameterization": {
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "texture_3d<ST>"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The sampled, multisampled, depth, storage, or external texture."
+      },
+      {
+        "name": "level",
+        "description": "The mip level, with level 0 containing a full size version of the texture. If omitted, the dimensions of level 0 are returned."
+      }
+    ],
+    "description": "Returns the dimensions of a texture, or texture’s mip level in texels.\n\nReturns:\n\nThe coordinate dimensions of the texture.\n\nThat is, the result provides the integer bounds on the coordinates of the logical texel address, excluding the mip level count, array size, and sample count.\n\nFor textures based on cubes, the results are the dimensions of each face of the cube. Cube faces are square, so the x and y components of the result are equal.\n\nIf level is outside the range [0, textureNumLevels(t)) then an indeterminate value for the return type may be returned."
+  },
+  "textureGather": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureGather ( component: C, t: texture_2d<ST>, s: sampler, coords: vec2<f32> ) -> vec4<ST>",
+        "parameterization": {
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( component: C, t: texture_2d<ST>, s: sampler, coords: vec2<f32>, offset: vec2<i32> ) -> vec4<ST>",
+        "parameterization": {
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( component: C, t: texture_2d_array<ST>, s: sampler, coords: vec2<f32>, array_index: A ) -> vec4<ST>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( component: C, t: texture_2d_array<ST>, s: sampler, coords: vec2<f32>, array_index: A, offset: vec2<i32> ) -> vec4<ST>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( component: C, t: texture_cube<ST>, s: sampler, coords: vec3<f32> ) -> vec4<ST>",
+        "parameterization": {
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( component: C, t: texture_cube_array<ST>, s: sampler, coords: vec3<f32>, array_index: A ) -> vec4<ST>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( t: texture_depth_2d, s: sampler, coords: vec2<f32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( t: texture_depth_2d, s: sampler, coords: vec2<f32>, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( t: texture_depth_cube, s: sampler, coords: vec3<f32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: A ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: A, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGather ( t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_index: A ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "component",
+        "description": "Only applies to non-depth textures. The index of the channel to read from the selected texels. When provided, the component expression must be a const-expression (e.g. 1 ). Its value must be at least 0 and at most 3. Values outside of this range will result in a shader-creation error."
+      },
+      {
+        "name": "t",
+        "description": "The sampled or depth texture to read from."
+      },
+      {
+        "name": "s",
+        "description": "The sampler type."
+      },
+      {
+        "name": "coords",
+        "description": "The texture coordinates."
+      },
+      {
+        "name": "array_index",
+        "description": "The 0-based texture array index."
+      },
+      {
+        "name": "offset",
+        "description": "The optional texel offset applied to the unnormalized texture coordinate before sampling the texture. This offset is applied before applying any texture wrapping modes. The offset expression must be a const-expression (e.g. vec2<i32>(1, 2) ). Each offset component must be at least -8 and at most 7. Values outside of this range will result in a shader-creation error."
+      }
+    ],
+    "description": "A texture gather operation reads from a 2D, 2D array, cube, or cube array texture, computing a four-component vector as follows:\n\nReturns:\n\nA four component vector with components extracted from the specified channel from the selected texels, as described above.\n\nEXAMPLE: Gather components from texels in 2D texture @group ( 0 ) @binding ( 0 ) var t: texture_2d < f32 >; @group ( 0 ) @binding ( 1 ) var dt: texture_depth_2d; @group ( 0 ) @binding ( 2 ) var s: sampler; fn gather_x_components ( c: vec2 < f32 > ) -> vec4 < f32 > { return textureGather ( 0, t, s, c ); } fn gather_y_components ( c: vec2 < f32 > ) -> vec4 < f32 > { return textureGather ( 1, t, s, c ); } fn gather_z_components ( c: vec2 < f32 > ) -> vec4 < f32 > { return textureGather ( 2, t, s, c ); } fn gather_depth_components ( c: vec2 < f32 > ) -> vec4 < f32 > { return textureGather ( dt, s, c ); }"
+  },
+  "textureGatherCompare": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureGatherCompare ( t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32 ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGatherCompare ( t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGatherCompare ( t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: A, depth_ref: f32 ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGatherCompare ( t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: A, depth_ref: f32, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGatherCompare ( t: texture_depth_cube, s: sampler_comparison, coords: vec3<f32>, depth_ref: f32 ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureGatherCompare ( t: texture_depth_cube_array, s: sampler_comparison, coords: vec3<f32>, array_index: A, depth_ref: f32 ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The depth texture to read from."
+      },
+      {
+        "name": "s",
+        "description": "The sampler comparison."
+      },
+      {
+        "name": "coords",
+        "description": "The texture coordinates."
+      },
+      {
+        "name": "array_index",
+        "description": "The 0-based texture array index."
+      },
+      {
+        "name": "depth_ref",
+        "description": "The reference value to compare the sampled depth value against."
+      },
+      {
+        "name": "offset",
+        "description": "The optional texel offset applied to the unnormalized texture coordinate before sampling the texture. This offset is applied before applying any texture wrapping modes. The offset expression must be a const-expression (e.g. vec2<i32>(1, 2) ). Each offset component must be at least -8 and at most 7. Values outside of this range will result in a shader-creation error."
+      }
+    ],
+    "description": "A texture gather compare operation performs a depth comparison on four texels in a depth texture and collects the results into a single vector, as follows:\n\nReturns:\n\nA four component vector with comparison result for the selected texels, as described above.\n\nEXAMPLE: Gather depth comparison @group ( 0 ) @binding ( 0 ) var dt: texture_depth_2d; @group ( 0 ) @binding ( 1 ) var s: sampler; fn gather_depth_compare ( c: vec2 < f32 >, depth_ref: f32 ) -> vec4 < f32 > { return textureGatherCompare ( dt, s, c, depth_ref ); }"
+  },
+  "textureLoad": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_1d<ST>, coords: C, level: L ) -> vec4<ST>",
+        "parameterization": {
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_2d<ST>, coords: vec2<C>, level: L ) -> vec4<ST>",
+        "parameterization": {
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_2d_array<ST>, coords: vec2<C>, array_index: A, level: L ) -> vec4<ST>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_3d<ST>, coords: vec3<C>, level: L ) -> vec4<ST>",
+        "parameterization": {
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_multisampled_2d<ST>, coords: vec2<C>, sample_index: S )-> vec4<ST>",
+        "parameterization": {
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "S": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_depth_2d, coords: vec2<C>, level: L ) -> f32",
+        "parameterization": {
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_depth_2d_array, coords: vec2<C>, array_index: A, level: L ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_depth_multisampled_2d, coords: vec2<C>, sample_index: S )-> f32",
+        "parameterization": {
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "S": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_external, coords: vec2<C> ) -> vec4<f32>",
+        "parameterization": {
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_storage_1d<F, AM>, coords: C ) -> vec4<CF>",
+        "parameterization": {
+          "AM": {
+            "types": [
+              "read",
+              "read_write"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "CF": {
+            "description": "depends on the storage texel format F. See the texel format table for the mapping of texel format to channel format."
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_storage_2d<F, AM>, coords: vec2<C> ) -> vec4<CF>",
+        "parameterization": {
+          "AM": {
+            "types": [
+              "read",
+              "read_write"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "CF": {
+            "description": "depends on the storage texel format F. See the texel format table for the mapping of texel format to channel format."
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_storage_2d_array<F, AM>, coords: vec2<C>, array_index: A ) -> vec4<CF>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "AM": {
+            "types": [
+              "read",
+              "read_write"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "CF": {
+            "description": "depends on the storage texel format F. See the texel format table for the mapping of texel format to channel format."
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureLoad ( t: texture_storage_3d<F, AM>, coords: vec3<C> ) -> vec4<CF>",
+        "parameterization": {
+          "AM": {
+            "types": [
+              "read",
+              "read_write"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "CF": {
+            "description": "depends on the storage texel format F. See the texel format table for the mapping of texel format to channel format."
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The sampled, multisampled, depth, storage, or external texture"
+      },
+      {
+        "name": "coords",
+        "description": "The 0-based texel coordinate."
+      },
+      {
+        "name": "array_index",
+        "description": "The 0-based texture array index."
+      },
+      {
+        "name": "level",
+        "description": "The mip level, with level 0 containing a full size version of the texture."
+      },
+      {
+        "name": "sample_index",
+        "description": "The 0-based sample index of the multisampled texture."
+      }
+    ],
+    "description": "Reads a single texel from a texture without sampling or filtering.\n\nReturns:\n\nThe unfiltered texel data.\n\nThe logical texel address is invalid if:\n\nany element of coords is outside the range [0, textureDimensions(t, level)) for the corresponding element, or array_index is outside the range [0, textureNumLayers(t)), or level is outside the range [0, textureNumLevels(t)), or sample_index is outside the range [0, textureNumSamples(s))\n\nIf the logical texel addresss is invalid, the built-in function returns one of:\n\nThe data for some texel within bounds of the texture A vector (0,0,0,0) or (0,0,0,1) of the appropriate type for non-depth textures 0.0 for depth textures"
+  },
+  "textureNumLayers": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureNumLayers ( t: T ) -> u32",
+        "parameterization": {
+          "A": {
+            "description": "is an access mode"
+          },
+          "F": {
+            "description": "is a texel format"
+          },
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "texture_2d_array<ST>",
+              "texture_cube_array<ST>",
+              "texture_depth_2d_array",
+              "texture_depth_cube_array",
+              "texture_storage_2d_array<F,A>"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The sampled, depth, or storage texture array texture."
+      }
+    ],
+    "description": "Returns the number of layers (elements) of an arrayed texture.\n\nReturns:\n\nIf the texture is based on cubes, returns the number of cubes in the cube arrayed texture.\n\nOtherwise returns the number of layers (homogeneous grids of texels) in the arrayed texture."
+  },
+  "textureNumLevels": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureNumLevels ( t: T ) -> u32",
+        "parameterization": {
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "texture_1d<ST>",
+              "texture_2d<ST>",
+              "texture_2d_array<ST>",
+              "texture_3d<ST>",
+              "texture_cube<ST>",
+              "texture_cube_array<ST>",
+              "texture_depth_2d",
+              "texture_depth_2d_array",
+              "texture_depth_cube",
+              "texture_depth_cube_array"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The sampled or depth texture."
+      }
+    ],
+    "description": "Returns the number of mip levels of a texture.\n\nReturns:\n\nThe mip level count for the texture."
+  },
+  "textureNumSamples": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureNumSamples ( t: T ) -> u32",
+        "parameterization": {
+          "ST": {
+            "types": [
+              "i32",
+              "u32",
+              "f32"
+            ]
+          },
+          "T": {
+            "types": [
+              "texture_multisampled_2d<ST>",
+              "texture_depth_multisampled_2d"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The multisampled texture."
+      }
+    ],
+    "description": "Returns the number samples per texel in a multisampled texture.\n\nReturns:\n\nThe sample count for the multisampled texture."
+  },
+  "textureSample": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureSample ( t: texture_1d<f32>, s: sampler, coords: f32 ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_2d<f32>, s: sampler, coords: vec2<f32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_2d<f32>, s: sampler, coords: vec2<f32>, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: A ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: A, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: T, s: sampler, coords: vec3<f32> ) -> vec4<f32>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "texture_3d<f32>",
+              "texture_cube<f32>"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_3d<f32>, s: sampler, coords: vec3<f32>, offset: vec3<i32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: A ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_depth_2d, s: sampler, coords: vec2<f32> ) -> f32",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_depth_2d, s: sampler, coords: vec2<f32>, offset: vec2<i32> ) -> f32",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: A ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: A, offset: vec2<i32> ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_depth_cube, s: sampler, coords: vec3<f32> ) -> f32",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSample ( t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_index: A ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The sampled or depth texture to sample."
+      },
+      {
+        "name": "s",
+        "description": "The sampler type."
+      },
+      {
+        "name": "coords",
+        "description": "The texture coordinates used for sampling."
+      },
+      {
+        "name": "array_index",
+        "description": "The 0-based texture array index to sample."
+      },
+      {
+        "name": "offset",
+        "description": "The optional texel offset applied to the unnormalized texture coordinate before sampling the texture. This offset is applied before applying any texture wrapping modes. The offset expression must be a const-expression (e.g. vec2<i32>(1, 2) ). Each offset component must be at least -8 and at most 7. Values outside of this range will result in a shader-creation error."
+      }
+    ],
+    "description": "Samples a texture.\n\nReturns:\n\nThe sampled value.\n\nAn indeterminate value results if called in non-uniform control flow."
+  },
+  "textureSampleBaseClampToEdge": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureSampleBaseClampToEdge ( t: T, s: sampler, coords: vec2<f32> ) -> vec4<f32>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "texture_2d<f32>",
+              "texture_external"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The sampled or external texture to sample."
+      },
+      {
+        "name": "s",
+        "description": "The sampler type."
+      },
+      {
+        "name": "coords",
+        "description": "The texture coordinates used for sampling. Before sampling, the given coordinates will be clamped to the rectangle [ half_texel, 1 - half_texel ] where half_texel = vec2(0.5) / vec2<f32>(textureDimensions(t)) Note: The half-texel adjustment ensures that, independent of the sampler’s addressing and filter modes, wrapping will not occur. That is, when sampling near an edge, the sampled texels will be at or adjacent to that edge, and not selected from the opposite edge."
+      }
+    ],
+    "description": "Samples a texture view at its base level, with texture coordinates clamped to the edge as described below.\n\nReturns:\n\nThe sampled value."
+  },
+  "textureSampleBias": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureSampleBias ( t: texture_2d<f32>, s: sampler, coords: vec2<f32>, bias: f32 ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleBias ( t: texture_2d<f32>, s: sampler, coords: vec2<f32>, bias: f32, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleBias ( t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: A, bias: f32 ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleBias ( t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: A, bias: f32, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleBias ( t: T, s: sampler, coords: vec3<f32>, bias: f32 ) -> vec4<f32>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "texture_3d<f32>",
+              "texture_cube<f32>"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleBias ( t: texture_3d<f32>, s: sampler, coords: vec3<f32>, bias: f32, offset: vec3<i32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleBias ( t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: A, bias: f32 ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The sampled texture to sample."
+      },
+      {
+        "name": "s",
+        "description": "The sampler type."
+      },
+      {
+        "name": "coords",
+        "description": "The texture coordinates used for sampling."
+      },
+      {
+        "name": "array_index",
+        "description": "The 0-based texture array index to sample."
+      },
+      {
+        "name": "bias",
+        "description": "The bias to apply to the mip level before sampling. bias must be between -16.0 and 15.99."
+      },
+      {
+        "name": "offset",
+        "description": "The optional texel offset applied to the unnormalized texture coordinate before sampling the texture. This offset is applied before applying any texture wrapping modes. The offset expression must be a const-expression (e.g. vec2<i32>(1, 2) ). Each offset component must be at least -8 and at most 7. Values outside of this range will result in a shader-creation error."
+      }
+    ],
+    "description": "Samples a texture with a bias to the mip level.\n\nReturns:\n\nThe sampled value.\n\nAn indeterminate value results if called in non-uniform control flow."
+  },
+  "textureSampleCompare": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureSampleCompare ( t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32 ) -> f32",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleCompare ( t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32, offset: vec2<i32> ) -> f32",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleCompare ( t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: A, depth_ref: f32 ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleCompare ( t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: A, depth_ref: f32, offset: vec2<i32> ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleCompare ( t: texture_depth_cube, s: sampler_comparison, coords: vec3<f32>, depth_ref: f32 ) -> f32",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleCompare ( t: texture_depth_cube_array, s: sampler_comparison, coords: vec3<f32>, array_index: A, depth_ref: f32 ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The depth texture to sample."
+      },
+      {
+        "name": "s",
+        "description": "The sampler_comparison type."
+      },
+      {
+        "name": "coords",
+        "description": "The texture coordinates used for sampling."
+      },
+      {
+        "name": "array_index",
+        "description": "The 0-based texture array index to sample."
+      },
+      {
+        "name": "depth_ref",
+        "description": "The reference value to compare the sampled depth value against."
+      },
+      {
+        "name": "offset",
+        "description": "The optional texel offset applied to the unnormalized texture coordinate before sampling the texture. This offset is applied before applying any texture wrapping modes. The offset expression must be a const-expression (e.g. vec2<i32>(1, 2) ). Each offset component must be at least -8 and at most 7. Values outside of this range will result in a shader-creation error."
+      }
+    ],
+    "description": "Samples a depth texture and compares the sampled depth values against a reference value.\n\nReturns:\n\nA value in the range [0.0..1.0].\n\nEach sampled texel is compared against the reference value using the comparison operator defined by the sampler_comparison, resulting in either a 0 or 1 value for each texel.\n\nIf the sampler uses bilinear filtering then the returned value is the filtered average of these values, otherwise the comparison result of a single texel is returned.\n\nAn indeterminate value results if called in non-uniform control flow."
+  },
+  "textureSampleCompareLevel": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureSampleCompareLevel ( t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32 ) -> f32",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleCompareLevel ( t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32, offset: vec2<i32> ) -> f32",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleCompareLevel ( t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: A, depth_ref: f32 ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleCompareLevel ( t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: A, depth_ref: f32, offset: vec2<i32> ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleCompareLevel ( t: texture_depth_cube, s: sampler_comparison, coords: vec3<f32>, depth_ref: f32 ) -> f32",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleCompareLevel ( t: texture_depth_cube_array, s: sampler_comparison, coords: vec3<f32>, array_index: A, depth_ref: f32 ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The depth texture to sample."
+      },
+      {
+        "name": "s",
+        "description": "The sampler_comparison type."
+      },
+      {
+        "name": "coords",
+        "description": "The texture coordinates used for sampling."
+      },
+      {
+        "name": "array_index",
+        "description": "The 0-based texture array index to sample."
+      },
+      {
+        "name": "depth_ref",
+        "description": "The reference value to compare the sampled depth value against."
+      },
+      {
+        "name": "offset",
+        "description": "The optional texel offset applied to the unnormalized texture coordinate before sampling the texture. This offset is applied before applying any texture wrapping modes. The offset expression must be a const-expression (e.g. vec2<i32>(1, 2) ). Each offset component must be at least -8 and at most 7. Values outside of this range will result in a shader-creation error."
+      }
+    ],
+    "description": "Samples a depth texture and compares the sampled depth values against a reference value.\n\nReturns:\n\nA value in the range [0.0..1.0].\n\nThe textureSampleCompareLevel function is the same as textureSampleCompare, except that:\n\ntextureSampleCompareLevel always samples texels from mip level 0. The function does not compute derivatives. There is no requirement for textureSampleCompareLevel to be invoked in uniform control flow. textureSampleCompareLevel may be invoked in any shader stage."
+  },
+  "textureSampleGrad": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureSampleGrad ( t: texture_2d<f32>, s: sampler, coords: vec2<f32>, ddx: vec2<f32>, ddy: vec2<f32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleGrad ( t: texture_2d<f32>, s: sampler, coords: vec2<f32>, ddx: vec2<f32>, ddy: vec2<f32>, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleGrad ( t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: A, ddx: vec2<f32>, ddy: vec2<f32> ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleGrad ( t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: A, ddx: vec2<f32>, ddy: vec2<f32>, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleGrad ( t: T, s: sampler, coords: vec3<f32>, ddx: vec3<f32>, ddy: vec3<f32> ) -> vec4<f32>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "texture_3d<f32>",
+              "texture_cube<f32>"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleGrad ( t: texture_3d<f32>, s: sampler, coords: vec3<f32>, ddx: vec3<f32>, ddy: vec3<f32>, offset: vec3<i32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleGrad ( t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: A, ddx: vec3<f32>, ddy: vec3<f32> ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The sampled texture to sample."
+      },
+      {
+        "name": "s",
+        "description": "The sampler."
+      },
+      {
+        "name": "coords",
+        "description": "The texture coordinates used for sampling."
+      },
+      {
+        "name": "array_index",
+        "description": "The 0-based texture array index to sample."
+      },
+      {
+        "name": "ddx",
+        "description": "The x direction derivative vector used to compute the sampling locations."
+      },
+      {
+        "name": "ddy",
+        "description": "The y direction derivative vector used to compute the sampling locations."
+      },
+      {
+        "name": "offset",
+        "description": "The optional texel offset applied to the unnormalized texture coordinate before sampling the texture. This offset is applied before applying any texture wrapping modes. The offset expression must be a const-expression (e.g. vec2<i32>(1, 2) ). Each offset component must be at least -8 and at most 7. Values outside of this range will result in a shader-creation error."
+      }
+    ],
+    "description": "Samples a texture using explicit gradients.\n\nReturns:\n\nThe sampled value."
+  },
+  "textureSampleLevel": {
+    "overloads": [
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_2d<f32>, s: sampler, coords: vec2<f32>, level: f32 ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_2d<f32>, s: sampler, coords: vec2<f32>, level: f32, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: A, level: f32 ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: A, level: f32, offset: vec2<i32> ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: T, s: sampler, coords: vec3<f32>, level: f32 ) -> vec4<f32>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "texture_3d<f32>",
+              "texture_cube<f32>"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_3d<f32>, s: sampler, coords: vec3<f32>, level: f32, offset: vec3<i32> ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: A, level: f32 ) -> vec4<f32>",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_depth_2d, s: sampler, coords: vec2<f32>, level: L ) -> f32",
+        "parameterization": {
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_depth_2d, s: sampler, coords: vec2<f32>, level: L, offset: vec2<i32> ) -> f32",
+        "parameterization": {
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: A, level: L ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: A, level: L, offset: vec2<i32> ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_depth_cube, s: sampler, coords: vec3<f32>, level: L ) -> f32",
+        "parameterization": {
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_index: A, level: L ) -> f32",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "L": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The sampled or depth texture to sample."
+      },
+      {
+        "name": "s",
+        "description": "The sampler type."
+      },
+      {
+        "name": "coords",
+        "description": "The texture coordinates used for sampling."
+      },
+      {
+        "name": "array_index",
+        "description": "The 0-based texture array index to sample."
+      },
+      {
+        "name": "level",
+        "description": "The mip level, with level 0 containing a full size version of the texture. For the functions where level is a f32, fractional values may interpolate between two levels if the format is filterable according to the Texture Format Capabilities."
+      },
+      {
+        "name": "offset",
+        "description": "The optional texel offset applied to the unnormalized texture coordinate before sampling the texture. This offset is applied before applying any texture wrapping modes. The offset expression must be a const-expression (e.g. vec2<i32>(1, 2) ). Each offset component must be at least -8 and at most 7. Values outside of this range will result in a shader-creation error."
+      }
+    ],
+    "description": "Samples a texture using an explicit mip level.\n\nReturns:\n\nThe sampled value."
+  },
+  "textureStore": {
+    "overloads": [
+      {
+        "signature": "fn textureStore ( t: texture_storage_1d<F, AM>, coords: C, value: vec4<CF> )",
+        "parameterization": {
+          "AM": {
+            "types": [
+              "write",
+              "read_write"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "CF": {
+            "description": "depends on the storage texel format F. See the texel format table for the mapping of texel format to channel format."
+          },
+          "F": {
+            "description": "is a texel format"
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "fn textureStore ( t: texture_storage_2d<F, AM>, coords: vec2<C>, value: vec4<CF> )",
+        "parameterization": {
+          "AM": {
+            "types": [
+              "write",
+              "read_write"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "CF": {
+            "description": "depends on the storage texel format F. See the texel format table for the mapping of texel format to channel format."
+          },
+          "F": {
+            "description": "is a texel format"
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "fn textureStore ( t: texture_storage_2d_array<F, AM>, coords: vec2<C>, array_index: A, value: vec4<CF> )",
+        "parameterization": {
+          "A": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "AM": {
+            "types": [
+              "write",
+              "read_write"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "CF": {
+            "description": "depends on the storage texel format F. See the texel format table for the mapping of texel format to channel format."
+          },
+          "F": {
+            "description": "is a texel format"
+          }
+        },
+        "description": null
+      },
+      {
+        "signature": "fn textureStore ( t: texture_storage_3d<F, AM>, coords: vec3<C>, value: vec4<CF> )",
+        "parameterization": {
+          "AM": {
+            "types": [
+              "write",
+              "read_write"
+            ]
+          },
+          "C": {
+            "types": [
+              "i32",
+              "u32"
+            ]
+          },
+          "CF": {
+            "description": "depends on the storage texel format F. See the texel format table for the mapping of texel format to channel format."
+          },
+          "F": {
+            "description": "is a texel format"
+          }
+        },
+        "description": null
+      }
+    ],
+    "parameters": [
+      {
+        "name": "t",
+        "description": "The write-only storage texture or read-write storage texture"
+      },
+      {
+        "name": "coords",
+        "description": "The 0-based texel coordinate."
+      },
+      {
+        "name": "array_index",
+        "description": "The 0-based texture array index."
+      },
+      {
+        "name": "value",
+        "description": "The new texel value."
+      }
+    ],
+    "description": "Writes a single texel to a texture."
+  },
+  "transpose": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn transpose ( e: matRxC<T> ) -> matCxR<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          }
+        },
+        "description": "Returns the transpose of e."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "trunc": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn trunc ( e: T ) -> T",
+        "parameterization": {
+          "S": {
+            "types": [
+              "AbstractFloat,",
+              "f32,",
+              "f16"
+            ]
+          },
+          "T": {
+            "types": [
+              "S",
+              "vecN<S>"
+            ]
+          }
+        },
+        "description": "Returns truncate ( e ), the nearest whole number whose absolute value is less than or equal to the absolute value of e. Component-wise when T is a vector."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "u32": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn u32 ( e: T ) -> u32",
+        "parameterization": {
+          "T": {
+            "description": "is a scalar type"
+          }
+        },
+        "description": "Construct a u32 value. If T is u32, this is an identity operation. If T is i32, this is a reinterpretation of bits (i.e. the result is the unique value in u32 that has the same bit pattern as e ). If T is a floating point type, e is converted to u32, rounding towards zero. If T is bool, the result is 1u if e is true and 0u otherwise. If T is AbstractInt, this is an identity operation if the e can be represented in u32, otherwise it produces a shader-creation error."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "unpack2x16float": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn unpack2x16float ( e: u32 ) -> vec2<f32>",
+        "parameterization": {},
+        "description": "Decomposes a 32-bit value into two 16-bit chunks, and reinterpets each chunk as a floating point value. Component i of the result is the f32 representation of v, where v is the interpretation of bits 16× i through 16× i + 15 of e as an IEEE-754 binary16 value. See § 14.6.4 Floating Point Conversion."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "unpack2x16snorm": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn unpack2x16snorm ( e: u32 ) -> vec2<f32>",
+        "parameterization": {},
+        "description": "Decomposes a 32-bit value into two 16-bit chunks, then reinterprets each chunk as a signed normalized floating point value. Component i of the result is max(v ÷ 32767, -1), where v is the interpretation of bits 16× i through 16× i + 15 of e as a twos-complement signed integer."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "unpack2x16unorm": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn unpack2x16unorm ( e: u32 ) -> vec2<f32>",
+        "parameterization": {},
+        "description": "Decomposes a 32-bit value into two 16-bit chunks, then reinterprets each chunk as an unsigned normalized floating point value. Component i of the result is v ÷ 65535, where v is the interpretation of bits 16× i through 16× i + 15 of e as an unsigned integer."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "unpack4x8snorm": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn unpack4x8snorm ( e: u32 ) -> vec4<f32>",
+        "parameterization": {},
+        "description": "Decomposes a 32-bit value into four 8-bit chunks, then reinterprets each chunk as a signed normalized floating point value. Component i of the result is max(v ÷ 127, -1), where v is the interpretation of bits 8× i through 8× i + 7 of e as a twos-complement signed integer."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "unpack4x8unorm": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn unpack4x8unorm ( e: u32 ) -> vec4<f32>",
+        "parameterization": {},
+        "description": "Decomposes a 32-bit value into four 8-bit chunks, then reinterprets each chunk as an unsigned normalized floating point value. Component i of the result is v ÷ 255, where v is the interpretation of bits 8× i through 8× i + 7 of e as an unsigned integer."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "unpack4xI8": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn unpack4xI8 ( e: u32 ) -> vec4<i32>",
+        "parameterization": {},
+        "description": "e is interpreted as a vector with four 8-bit signed integer components. Unpack e into a vec4<i32> with sign extension."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "unpack4xU8": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn unpack4xU8 ( e: u32 ) -> vec4<u32>",
+        "parameterization": {},
+        "description": "e is interpreted as a vector with four 8-bit unsigned integer components. Unpack e into a vec4<u32> with zero extension."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "vec2": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn vec2<T> ( e: T ) -> vec2<T> @const @must_use fn vec2 ( e: S ) -> vec2<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "scalar"
+            ]
+          },
+          "T": {
+            "description": "is a concrete scalar"
+          }
+        },
+        "description": "Construction of a two-component vector with e as both components."
+      },
+      {
+        "signature": "@const @must_use fn vec2<T> ( e: vec2<S> ) -> vec2<T> @const @must_use fn vec2 ( e: vec2<S> ) -> vec2<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "scalar"
+            ]
+          },
+          "T": {
+            "description": "is a concrete scalar"
+          }
+        },
+        "description": "Component-wise construction of a two-component vector with e.x and e.y as components. If T does not match S a conversion is used and the components are T(e.x) and T(e.y)."
+      },
+      {
+        "signature": "@const @must_use fn vec2<T> ( e1: T, e2: T ) -> vec2<T> @const @must_use fn vec2 ( e1: T, e2: T ) -> vec2<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a two-component vector with e1 and e2 as components."
+      },
+      {
+        "signature": "@const @must_use fn vec2 () -> vec2<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractInt"
+            ]
+          }
+        },
+        "description": "Returns the value vec2(0,0)."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "vec3": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn vec3<T> ( e: T ) -> vec3<T> @const @must_use fn vec3 ( e: S ) -> vec3<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "scalar"
+            ]
+          },
+          "T": {
+            "description": "is a concrete scalar"
+          }
+        },
+        "description": "Construction of a three-component vector with e as all components."
+      },
+      {
+        "signature": "@const @must_use fn vec3<T> ( e: vec3<S> ) -> vec3<T> @const @must_use fn vec3 ( e: vec3<S> ) -> vec3<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "scalar"
+            ]
+          },
+          "T": {
+            "description": "is a concrete scalar"
+          }
+        },
+        "description": "Component-wise construction of a three-component vector with e.x, e.y, and e.z as components. If T does not match S a conversion is used and the components are T(e.x), T(e.y), and T(e.z)."
+      },
+      {
+        "signature": "@const @must_use fn vec3<T> ( e1: T, e2: T, e3: T ) -> vec3<T> @const @must_use fn vec3 ( e1: T, e2: T, e3: T ) -> vec3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a three-component vector with e1, e2, and e3 as components."
+      },
+      {
+        "signature": "@const @must_use fn vec3<T> ( v1: vec2<T>, e1: T ) -> vec3<T> @const @must_use fn vec3 ( v1: vec2<T>, e1: T ) -> vec3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a three-component vector with v1.x, v1.y, and e1 as components."
+      },
+      {
+        "signature": "@const @must_use fn vec3<T> ( e1: T, v1: vec2<T> ) -> vec3<T> @const @must_use fn vec3 ( e1: T, v1: vec2<T> ) -> vec3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a three-component vector with e1, v1.x, and v1.y as components."
+      },
+      {
+        "signature": "@const @must_use fn vec3 () -> vec3<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractInt"
+            ]
+          }
+        },
+        "description": "Returns the value vec3(0,0,0)."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "vec4": {
+    "overloads": [
+      {
+        "signature": "@const @must_use fn vec4<T> ( e: T ) -> vec4<T> @const @must_use fn vec4 ( e: S ) -> vec4<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "scalar"
+            ]
+          },
+          "T": {
+            "description": "is a concrete scalar"
+          }
+        },
+        "description": "Construction of a four-component vector with e as all components."
+      },
+      {
+        "signature": "@const @must_use fn vec4<T> ( e: vec4<S> ) -> vec4<T> @const @must_use fn vec4 ( e: vec4<S> ) -> vec4<S>",
+        "parameterization": {
+          "S": {
+            "types": [
+              "scalar"
+            ]
+          },
+          "T": {
+            "description": "is a concrete scalar"
+          }
+        },
+        "description": "Component-wise construction of a four-component vector with e.x, e.y, e.z, and e.w as components. If T does not match S a conversion is used and the components are T(e.x), T(e.y), T(e.z) and T(e.w)."
+      },
+      {
+        "signature": "@const @must_use fn vec4<T> ( e1: T, e2: T, e3: T, e4: T ) -> vec4<T> @const @must_use fn vec4 ( e1: T, e2: T, e3: T, e4: T ) -> vec4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a four-component vector with e1, e2, e3, and e4 as components."
+      },
+      {
+        "signature": "@const @must_use fn vec4<T> ( e1: T, v1: vec2<T>, e2: T ) -> vec4<T> @const @must_use fn vec4 ( e1: T, v1: vec2<T>, e2: T ) -> vec4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a four-component vector with e1, v1.x, v1.y, and e2 as components."
+      },
+      {
+        "signature": "@const @must_use fn vec4<T> ( e1: T, e2: T, v1: vec2<T> ) -> vec4<T> @const @must_use fn vec4 ( e1: T, e2: T, v1: vec2<T> ) -> vec4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a four-component vector with e1, e2, v1.x, and v1.y as components."
+      },
+      {
+        "signature": "@const @must_use fn vec4<T> ( v1: vec2<T>, v2: vec2<T> ) -> vec4<T> @const @must_use fn vec4 ( v1: vec2<T>, v2: vec2<T> ) -> vec4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a four-component vector with v1.x, v1.y, v2.x, and v2.y as components."
+      },
+      {
+        "signature": "@const @must_use fn vec4<T> ( v1: vec2<T>, e1: T, e2: T ) -> vec4<T> @const @must_use fn vec4 ( v1: vec2<T>, e1: T, e2: T ) -> vec4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a four-component vector with v1.x, v1.y, e1, and e2 as components."
+      },
+      {
+        "signature": "@const @must_use fn vec4<T> ( v1: vec3<T>, e1: T ) -> vec4<T> @const @must_use fn vec4 ( v1: vec3<T>, e1: T ) -> vec4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a four-component vector with v1.x, v1.y, v1.z, and e1 as components."
+      },
+      {
+        "signature": "@const @must_use fn vec4<T> ( e1: T, v1: vec3<T> ) -> vec4<T> @const @must_use fn vec4 ( e1: T, v1: vec3<T> ) -> vec4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "scalar"
+            ]
+          }
+        },
+        "description": "Component-wise construction of a four-component vector with e1, v1.x, v1.y, and v1.z as components."
+      },
+      {
+        "signature": "@const @must_use fn vec4 () -> vec4<T>",
+        "parameterization": {
+          "T": {
+            "types": [
+              "AbstractInt"
+            ]
+          }
+        },
+        "description": "Returns the value vec4(0,0,0,0)."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "workgroupBarrier": {
+    "overloads": [
+      {
+        "signature": "fn workgroupBarrier ()",
+        "parameterization": {},
+        "description": "Executes a control barrier synchronization function that affects memory and atomic operations in the workgroup address space."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "workgroupUniformLoad": {
+    "overloads": [
+      {
+        "signature": "@must_use fn workgroupUniformLoad ( p: ptr<workgroup, T> ) -> T",
+        "parameterization": {
+          "T": {
+            "description": "is a concrete plain type with a fixed footprint that does not contain any atomic types"
+          }
+        },
+        "description": "Returns the value pointed to by p to all invocations in the workgroup. The return value is uniform. p must be a uniform value. Executes a control barrier synchronization function that affects memory and atomic operations in the workgroup address space."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  }
+}
