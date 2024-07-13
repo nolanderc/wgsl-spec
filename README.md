@@ -11,13 +11,13 @@ spec](https://www.w3.org/TR/WGSL/) and produces a set of JSON files in the
 
 ## Building
 
-You can update the spec by running
+You can download the most recent spec by running:
 
 ```
 ./x update-upstream
 ```
 
-And then to regenerate the bindings:
+And then to regenerate the JSON files:
 
 ```
 ./x run
