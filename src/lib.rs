@@ -3,9 +3,9 @@ pub mod scrape;
 
 use std::collections::BTreeMap;
 
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct TokenInfo {
     pub keywords: Vec<String>,
     pub attributes: Vec<String>,
@@ -16,26 +16,26 @@ pub struct TokenInfo {
     pub type_generators: Vec<String>,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 #[serde(transparent)]
 pub struct FunctionInfo {
     pub functions: BTreeMap<String, Function>,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Function {
     pub overloads: Vec<FunctionOverload>,
     pub parameters: Vec<FunctionParameter>,
     pub description: Option<String>,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct FunctionParameter {
     pub name: String,
     pub description: String,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct FunctionOverload {
     pub signature: String,
     pub parameterization: Parameterization,
@@ -43,17 +43,31 @@ pub struct FunctionOverload {
 }
 
 /// Dsecribes the valid values for a set of variables.
-#[derive(Debug, Default, Serialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 #[serde(transparent)]
 pub struct Parameterization {
     pub typevars: BTreeMap<String, ParameterizationKind>,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum ParameterizationKind {
     /// A list of types.
     Types(Vec<String>),
     /// A human-readable description.
     Description(String),
+}
+
+#[cfg(feature = "include")]
+pub mod include {
+    pub const TOKENS_JSON: &str = include_str!("../spec/tokens.json");
+    pub const FUNCTIONS_JSON: &str = include_str!("../spec/functions.json");
+
+    pub fn tokens() -> serde_json::Result<crate::TokenInfo> {
+        serde_json::from_slice(TOKENS_JSON.as_bytes())
+    }
+
+    pub fn functions() -> serde_json::Result<crate::FunctionInfo> {
+        serde_json::from_slice(FUNCTIONS_JSON.as_bytes())
+    }
 }
