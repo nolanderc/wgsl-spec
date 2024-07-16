@@ -288,6 +288,7 @@ fn parse_parameterization(element: scraper::ElementRef) -> Parameterization {
                 if matches!(word, "," | "or") {
                     continue;
                 }
+                let word = word.trim_end_matches(',');
                 types.push(word.into());
             }
 
