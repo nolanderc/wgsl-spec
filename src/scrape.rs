@@ -1,3 +1,5 @@
+use scraper::selectable::Selectable;
+
 use crate::*;
 
 macro_rules! selector {
@@ -43,6 +45,29 @@ pub fn extract_tokens(html: &scraper::Html) -> TokenInfo {
         .collect::<Vec<_>>();
     type_generators.sort();
 
+    let mut type_aliases = BTreeMap::new();
+    for table in html.select(selector!("table")) {
+        let mut headings = table.select(selector!("th"));
+        let Some(alias_name) = headings.next() else { continue };
+        let Some(original) = headings.next() else { continue };
+        if !alias_name.text().any(|x| x.contains("Predeclared alias")) {
+            continue;
+        }
+        if !original.text().any(|x| x.contains("Original type")) {
+            continue;
+        }
+
+        for row in table.select(selector!("tbody tr")) {
+            let mut columns = row.select(selector!("td"));
+            let Some(name) = columns.next() else { continue };
+            let Some(original) = columns.next() else { continue };
+
+            let name = join_words(name.text()).trim().to_string();
+            let original = join_words(original.text()).trim().to_string();
+            type_aliases.insert(name, original);
+        }
+    }
+
     TokenInfo {
         keywords,
         attributes,
@@ -51,6 +76,7 @@ pub fn extract_tokens(html: &scraper::Html) -> TokenInfo {
         interpolation_sampling_names,
         primitive_types,
         type_generators,
+        type_aliases,
     }
 }
 

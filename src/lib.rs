@@ -14,6 +14,7 @@ pub struct TokenInfo {
     pub interpolation_sampling_names: Vec<String>,
     pub primitive_types: Vec<String>,
     pub type_generators: Vec<String>,
+    pub type_aliases: BTreeMap<String, String>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
