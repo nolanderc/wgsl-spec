@@ -6,9 +6,9 @@ edition = "2021"
 [lib]
 path = "src/lib.rs"
 
-[[bin]]
-name = "gen-spec"
-path = "src/main.rs"
+[[example]]
+name = "gen_spec"
+path = "src/gen_spec.rs"
 
 [dependencies]
 scraper = { version = "0.19.0", optional = true }

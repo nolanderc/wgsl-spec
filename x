@@ -20,7 +20,7 @@ function test {
 }
 
 function run {
-    cargo run -F scrape "$@"
+    cargo run --example gen_spec -F scrape "$@"
 }
 
 function check {
