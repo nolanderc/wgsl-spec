@@ -28,7 +28,7 @@ function check {
 }
 
 function watch {
-    watchexec -e rs,toml -c --on-busy-update=do-nothing -- ./x "$@"
+    watchexec -e rs,toml -c --on-busy-update=do-nothing --no-meta -- ./x "$@"
 }
 
 if [[ $# == 0 ]]; then

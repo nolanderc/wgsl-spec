@@ -30,7 +30,7 @@ pub fn extract_tokens(html: &scraper::Html) -> TokenInfo {
         names
     };
 
-    let attributes = extract_names("attribute-names");
+    let attributes = extract_attributes(html);
     let builtin_values = extract_names("builtin-value-names");
     let interpolation_type_names = extract_names("interpolation-type-names");
     let interpolation_sampling_names = extract_names("interpolation-sampling-names");
@@ -78,6 +78,62 @@ pub fn extract_tokens(html: &scraper::Html) -> TokenInfo {
         type_generators,
         type_aliases,
     }
+}
+
+fn extract_attributes(html: &scraper::Html) -> BTreeMap<String, Attribute> {
+    let mut attributes = BTreeMap::new();
+
+    for heading in html.select(selector!("h3[id$=-attr], h4[id$=-attr]")) {
+        let contents = heading
+            .next_siblings()
+            .filter_map(scraper::ElementRef::wrap)
+            .take_while(|x| !matches!(x.value().name(), "h1" | "h2" | "h3" | "h4"));
+
+        let mut attr_name = None;
+        let mut description = None;
+        let mut description_parameters = None;
+
+        for content in contents {
+            if content.attr("class") == Some("syntax") {
+                for name in content.select(selector!("p > code")) {
+                    let Some(word) = name.text().next() else { continue };
+                    attr_name = Some(word.trim_matches('\'').to_owned());
+                }
+            } else {
+                for row in content.select(selector!("tr")) {
+                    let mut columns = row.select(selector!("td"));
+                    let Some(header) = columns.next() else { continue };
+                    let Some(value) = columns.next() else { continue };
+
+                    if join_words(header.text()) == "Description" {
+                        description = Some(join_words(value.text()));
+                    }
+
+                    if join_words(header.text()) == "Parameters" {
+                        let text = join_words(value.text());
+                        if text != "None" {
+                            description_parameters = Some(text);
+                        }
+                    }
+
+                    // dbg!(join_words(content.text()));
+                }
+
+                if description.is_none() && content.value().name() == "p" {
+                    description = Some(join_words(content.text()));
+                }
+            }
+        }
+
+        let Some(name) = attr_name else { continue };
+
+        attributes.insert(
+            name,
+            Attribute { description: description.unwrap_or_default(), description_parameters },
+        );
+    }
+
+    attributes
 }
 
 pub fn extract_functions(html: &scraper::Html) -> BTreeMap<String, Function> {

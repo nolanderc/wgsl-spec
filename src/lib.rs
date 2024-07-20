@@ -8,13 +8,19 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Serialize, Deserialize)]
 pub struct TokenInfo {
     pub keywords: Vec<String>,
-    pub attributes: Vec<String>,
+    pub attributes: BTreeMap<String, Attribute>,
     pub builtin_values: Vec<String>,
     pub interpolation_type_names: Vec<String>,
     pub interpolation_sampling_names: Vec<String>,
     pub primitive_types: Vec<String>,
     pub type_generators: Vec<String>,
     pub type_aliases: BTreeMap<String, String>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Attribute {
+    pub description: String,
+    pub description_parameters: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
