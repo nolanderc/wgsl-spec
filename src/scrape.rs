@@ -31,7 +31,7 @@ pub fn extract_tokens(html: &scraper::Html) -> TokenInfo {
     };
 
     let attributes = extract_attributes(html);
-    let builtin_values = extract_names("builtin-value-names");
+    let builtin_values = extract_builtin_values(html);
     let interpolation_type_names = extract_names("interpolation-type-names");
     let interpolation_sampling_names = extract_names("interpolation-sampling-names");
     let primitive_types = extract_names("predeclared-types");
@@ -105,18 +105,16 @@ fn extract_attributes(html: &scraper::Html) -> BTreeMap<String, Attribute> {
                     let Some(header) = columns.next() else { continue };
                     let Some(value) = columns.next() else { continue };
 
-                    if join_words(header.text()) == "Description" {
+                    let header = join_words(header.text());
+                    if header == "Description" {
                         description = Some(join_words(value.text()));
                     }
-
-                    if join_words(header.text()) == "Parameters" {
+                    if header == "Parameters" {
                         let text = join_words(value.text());
                         if text != "None" {
                             description_parameters = Some(text);
                         }
                     }
-
-                    // dbg!(join_words(content.text()));
                 }
 
                 if description.is_none() && content.value().name() == "p" {
@@ -134,6 +132,62 @@ fn extract_attributes(html: &scraper::Html) -> BTreeMap<String, Attribute> {
     }
 
     attributes
+}
+
+fn extract_builtin_values(html: &scraper::Html) -> BTreeMap<String, BuiltinValue> {
+    let mut builtin_values = BTreeMap::new();
+
+    for heading in html.select(selector!("h6[id$=-builtin-value]")) {
+        let contents = heading
+            .next_siblings()
+            .filter_map(scraper::ElementRef::wrap)
+            .take_while(|x| !matches!(x.value().name(), "h1" | "h2" | "h3" | "h4" | "h5" | "h6"));
+
+        for content in contents {
+            let mut name = None;
+            let mut stage = None;
+            let mut typ = None;
+            let mut direction = None;
+            let mut description = None;
+
+            for row in content.select(selector!("tr")) {
+                let mut columns = row.select(selector!("td"));
+                let Some(header) = columns.next() else { continue };
+                let Some(value) = columns.next() else { continue };
+
+                let header = join_words(header.text());
+                match header.as_str() {
+                    "Name" => name = Some(join_words(value.text())),
+                    "Stage" => stage = Some(join_words(value.text())),
+                    "Type" => typ = Some(join_words(value.text())),
+                    "Direction" => direction = Some(join_words(value.text())),
+                    "Description" => description = Some(join_words(value.text())),
+                    _ => continue,
+                }
+            }
+
+            let Some(name) = name else { continue };
+            let Some(stage) = stage else { continue };
+            let Some(typ) = typ else { continue };
+            let Some(direction) = direction else { continue };
+            let Some(description) = description else { continue };
+
+            let value =
+                builtin_values.entry(name).or_insert(BuiltinValue { stages: BTreeMap::new(), typ });
+            value.stages.insert(
+                stage,
+                BuiltinValueStage {
+                    description,
+                    direction: match direction.as_str() {
+                        "Output" => BuiltinValueDirection::Output,
+                        _ => BuiltinValueDirection::Input,
+                    },
+                },
+            );
+        }
+    }
+
+    builtin_values
 }
 
 pub fn extract_functions(html: &scraper::Html) -> BTreeMap<String, Function> {
