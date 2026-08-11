@@ -136,16 +136,26 @@
   "arrayLength": {
     "overloads": [
       {
-        "signature": "@must_use fn arrayLength ( p: ptr<storage, array<E>, AM> ) -> u32",
+        "signature": "@must_use fn arrayLength ( p: ptr<AS, array<E>, AM> ) -> u32",
         "parameterization": {
+          "AS": {
+            "types": [
+              "one",
+              "of",
+              "storage",
+              "uniform",
+              "workgroup",
+              "."
+            ]
+          },
           "E": {
-            "description": "is an element type for a runtime-sized array,"
+            "description": "is an element type for a runtime-sized array."
           },
           "access": {
-            "description": "mode AM is read or read_write"
+            "description": "mode AM is read or read_write and must be valid for AS."
           }
         },
-        "description": "Returns NRuntime, the number of elements in the runtime-sized array. See § 13.3.4 Buffer Binding Determines Runtime-Sized Array Element Count"
+        "description": "Returns NRuntime, the number of elements in the runtime-sized array. See § 13.3.4 Buffer Binding Determines Runtime-Sized Array Element Count When p is derived from a bufferView or bufferArrayView built-in function, NRuntime is based on the size of the buffer as determined by the analysis in § 17.14 Buffer View Built-in Functions."
       }
     ],
     "parameters": [],
@@ -403,7 +413,7 @@
         "signature": "@const @must_use fn bitcast<T> ( e: T ) -> T",
         "parameterization": {
           "T": {
-            "description": "is a concrete numeric scalar or concrete numeric vector"
+            "description": "is concrete numeric scalar or concrete numeric vector"
           }
         },
         "description": "Identity transform. Component-wise when T is a vector. The result is e."
@@ -527,6 +537,49 @@
           }
         },
         "description": "Construct a bool value. If T is bool, this is an identity operation. Otherwise this is a boolean coercion. The result is false if e is a zero value (or -0.0 for floating point types) and true otherwise."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "bufferArrayView": {
+    "overloads": [
+      {
+        "signature": "@must_use fn bufferArrayView<T> ( p: ptr<AS, buffer, AM>, offset: OI, size: SI ) -> ptr<AS, T, AM>",
+        "parameterization": {},
+        "description": "Reinterpret the memory view offset bytes from the start of p for size bytes as the type T. That is, if the memory locations associated with p are in the range [0, bufferLength(p) ), then the resulting memory locations associated with the result are in the range [ offset, offset + size ) with the store type T. If OI is i32, then: It is a shader-creation error if offset is a const-expression < 0. It is a pipeline-creation error if offset is an override-expression < 0. Otherwise, an indeterminate value for OI may be used. If SI is i32, then: It is a shader-creation error if size is a const-expression < 0. It is a pipeline-creation error if size is an override-expression < 0. Otherwise, an indeterminate value for SI may be used. An invalid memory reference is returned if MinTypeSize ( T ) > size. It is a shader-creation error if size is a const-expression (using 0 for offset if it is not). It is a pipeline-creation error if size is an override-expression (using 0 for offset if it is not). An invalid memory reference is returned if offset + size > bufferLength ( p ). If offset % RequiredAlignOf ( T, AS ) != 0, then: It is a shader-creation error if offset is a const-expression. It is a pipeline-creation error if offset is an override-expression. A value of offset & ~( RequiredAlignOf ( T, AS ) - 1) will be used for offset. Note: This interacts with the uniform_buffer_standard_layout language feature. If ( size - ArrayOffset ( T )) % StrideOf ( array<E> ) != 0, then: It is a shader-creation error if size is a const-expression. It is a pipeline-creation error if size is an override-expression. A value of roundDown ( StrideOf ( array<E> ), size - ArrayOffset ( T )) + ArrayOffset ( T ) will be used for size."
+      },
+      {
+        "signature": "@must_use fn bufferArrayView<T> ( p: ptr<AS, buffer<N>, AM>, offset: OI, size: SI ) -> ptr<AS, T, AM>",
+        "parameterization": {},
+        "description": "Reinterpret the memory view offset bytes from the start of p for size bytes as the type T. That is, if the memory locations associated with p are in the range [0, bufferLength(p) ), then the resulting memory locations associated with the result are in the range [ offset, offset + size ) with the store type T. If OI is i32, then: It is a shader-creation error if offset is a const-expression < 0. It is a pipeline-creation error if offset is an override-expression < 0. Otherwise, an indeterminate value for OI may be used. If SI is i32, then: It is a shader-creation error if size is a const-expression < 0. It is a pipeline-creation error if size is an override-expression < 0. Otherwise, an indeterminate value for SI may be used. An invalid memory reference is returned if MinTypeSize ( T ) > size. It is a shader-creation error if size is a const-expression (using 0 for offset if it is not). It is a pipeline-creation error if size is an override-expression (using 0 for offset if it is not). An invalid memory reference is returned if offset + size > N. It is a shader-creation error if either offset or size is a const-expression (using 0 if a parameter is not). It is a pipeline-creation error if either offset or size is an override-expression (using 0 if a parameter is not). If MinTypeSize ( T ) > N, then: It is a shader-creation error if N is a const-expression. It is a pipeline-creation error if N is an override-expression. If offset % RequiredAlignOf ( T, AS ) != 0, then: It is a shader-creation error if offset is a const-expression. It is a pipeline-creation error if offset is an override-expression. A value of offset & ~( RequiredAlignOf ( T, AS ) - 1) will be used for offset. Note: This interacts with the uniform_buffer_standard_layout language feature. If ( size - ArrayOffset ( T )) % StrideOf ( array<E> ) != 0, then: It is a shader-creation error if size is a const-expression. It is a pipeline-creation error if size is an override-expression. A value of roundDown ( StrideOf ( array<E> ), size - ArrayOffset ( T )) + ArrayOffset ( T ) will be used for size."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "bufferLength": {
+    "overloads": [
+      {
+        "signature": "@must_use fn bufferLength ( p: ptr<AS, buffer, AM> ) -> u32 @must_use fn bufferLength ( p: ptr<AS, buffer<N>, AM> ) -> u32",
+        "parameterization": {},
+        "description": "Returns the minimum size of the buffer pointed to by p encountered during the interprocedural analysis, or the size of the WebGPU GPUBuffer if only runtime-sized buffers were encountered."
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "bufferView": {
+    "overloads": [
+      {
+        "signature": "@must_use fn bufferView<T> ( p: ptr<AS, buffer, AM>, offset: I ) -> ptr<AS, T, AM>",
+        "parameterization": {},
+        "description": "Reinterpret the memory view offset bytes from the start of p as the type T. That is, if the memory locations associated with p are in the range [0, bufferLength(p) ), then the resulting memory locations associated with the result are in the range [ offset, bufferLength(p) ) with the store type T. If I is i32, then: It is a shader-creation error if offset is a const-expression < 0. It is a pipeline-creation error if offset is an override-expression < 0. Otherwise, an indeterminate value for I may be used. An invalid pointer is returned if MinTypeSize ( T ) + offset > bufferLength ( p ). If offset % RequiredAlignOf ( T, AS ) != 0, then: It is a shader-creation error if offset is a const-expression. It is a pipeline-creation error if offset is an override-expression. A value of offset & ~( RequiredAlignOf ( T, AS ) - 1) will be used for offset. Note: This interacts with the uniform_buffer_standard_layout language feature."
+      },
+      {
+        "signature": "@must_use fn bufferView<T> ( p: ptr<AS, buffer<N>, AM>, offset: I ) -> ptr<AS, T, AM>",
+        "parameterization": {},
+        "description": "Reinterpret the memory view offset bytes from the start of p as the type T. That is, if the memory locations associated with p are in the range [0, bufferLength(p) ), then the resulting memory locations associated with the result are in the range [ offset, bufferLength(p) ) with the store type T. If I is i32, then: It is a shader-creation error if offset is a const-expression < 0. It is a pipeline-creation error if offset is an override-expression < 0. Otherwise, an indeterminate value for I may be used. An invalid memory reference is returned if MinTypeSize ( T ) + offset > N. It is a shader-creation error if MinTypeSize ( T ) > N. It is a shader-creation error if offset is a const-expression. It is a pipeline-creation error if offset is an override-expression. If offset % RequiredAlignOf ( T, AS ) != 0, then: It is a shader-creation error if offset is a const-expression. It is a pipeline-creation error if offset is an override-expression. A value of offset & ~( RequiredAlignOf ( T, AS ) - 1) will be used for offset. Note: This interacts with the uniform_buffer_standard_layout language feature."
       }
     ],
     "parameters": [],
@@ -810,7 +863,7 @@
       {
         "signature": "@const @must_use fn dot4I8Packed ( e1: u32, e2: u32 ) -> i32",
         "parameterization": {},
-        "description": "e1 and e2 are interpreted as vectors with four 8-bit signed integer components. Return the signed integer dot product of these two vectors. Each component is sign-extended to i32 before performing the multiply, and then the add operations are done in WGSL i32 with wrapping behaviour."
+        "description": "e1 and e2 are interpreted as vectors with four 8-bit signed integer components. Return the signed integer dot product of these two vectors. Each component is sign-extended to i32 before performing the multiply, and then the add operations are done in WGSL i32 (the addition cannot overflow since the result is mathematically guaranteed to be in the range from -65024 to 65536, which lies within the range of numbers that can be represented by i32)."
       }
     ],
     "parameters": [],
@@ -1956,7 +2009,7 @@
             ]
           }
         },
-        "description": "Returns e2 if e1 is less than e2, and e1 otherwise. Component-wise when T is a vector. If e1 and e2 are floating-point values, then: If both e1 and e2 are subnormal, then the result may be either value. If one operand is a NaN, the other is returned. If both operands are NaNs, a NaN is returned."
+        "description": "Returns e2 if e1 is less than e2, and e1 otherwise. Component-wise when T is a vector. If e1 and e2 are floating-point values, then: If both e1 and e2 are subnormal, then the result may be either value."
       }
     ],
     "parameters": [],
@@ -1984,7 +2037,7 @@
             ]
           }
         },
-        "description": "Returns e2 if e2 is less than e1, and e1 otherwise. Component-wise when T is a vector. If e1 and e2 are floating-point values, then: If both e1 and e2 are subnormal, then the result may be either value. If one operand is a NaN, the other is returned. If both operands are NaNs, a NaN is returned."
+        "description": "Returns e2 if e2 is less than e1, and e1 otherwise. Component-wise when T is a vector. If e1 and e2 are floating-point values, then: If both e1 and e2 are subnormal, then the result may be either value."
       }
     ],
     "parameters": [],
@@ -2372,7 +2425,7 @@
             ]
           }
         },
-        "description": "For the incident vector e1 and surface normal e2, and the ratio of indices of refraction e3, let k = 1.0 - e3 * e3 * (1.0 - dot(e2, e1) * dot(e2, e1)). If k < 0.0, returns the refraction vector 0.0, otherwise return the refraction vector e3 * e1 - (e3 * dot(e2, e1) + sqrt(k)) * e2."
+        "description": "For the incident vector e1 and surface normal e2, and the ratio of indices of refraction e3, let k = 1.0 - e3 * e3 * (1.0 - dot(e2, e1) * dot(e2, e1)). If k < 0.0, returns the refraction vector 0.0, otherwise return the refraction vector e3 * e1 - (e3 * dot(e2, e1) + sqrt(k)) * e2. The incident vector e1 and the normal e2 should be normalized for desired results according to Snell’s Law; otherwise, the results may not conform to expected physical behavior."
       }
     ],
     "parameters": [],
@@ -2755,7 +2808,7 @@
       {
         "signature": "@must_use fn subgroupInclusiveAdd ( e: T ) -> T",
         "parameterization": {},
-        "description": "Inclusive prefix scan operation. Returns the sum of e among all active invocations in the subgroup whose subgroup invocation IDs are less than or equal to the current invocation’s id. Note: equivalent to subgroupInclusiveAdd(x) + x."
+        "description": "Inclusive prefix scan operation. Returns the sum of e among all active invocations in the subgroup whose subgroup invocation IDs are less than or equal to the current invocation’s id. Note: equivalent to subgroupExclusiveAdd(x) + x."
       }
     ],
     "parameters": [],
@@ -2822,9 +2875,15 @@
         "signature": "@must_use fn subgroupShuffle ( e: T, id: I ) -> T",
         "parameterization": {},
         "description": "Returns e from the invocation whose subgroup invocation ID matches id. If id is outside the range [0, 128), then: It is a shader-creation error if id is a const-expression. It is a pipeline-creation error if id is an override-expression. An indeterminate value is returned if id does not select an active invocation."
-      },
+      }
+    ],
+    "parameters": [],
+    "description": null
+  },
+  "subgroupShuffleDown": {
+    "overloads": [
       {
-        "signature": "@must_use fn subgroupShuffle ( e: T, delta: u32 ) -> T",
+        "signature": "@must_use fn subgroupShuffleDown ( e: T, delta: u32 ) -> T",
         "parameterization": {},
         "description": "Returns e from the invocation whose subgroup invocation ID matches subgroup_invocation_id + delta for the current invocation. If delta is greater than 127, then: It is a shader-creation error if delta is a const-expression. It is a pipeline-creation error if delta is an override-expression. A subgroup_uniformity diagnostic is triggered if delta is not a uniform value. An indeterminate value is returned if subgroup_invocation_id + delta does not select an active invocation or if delta is a not a uniform value within the subgroup."
       }
@@ -3702,7 +3761,7 @@
         "description": "The 0-based sample index of the multisampled texture."
       }
     ],
-    "description": "Reads a single texel from a texture without sampling or filtering.\n\nReturns:\n\nThe unfiltered texel data.\n\nThe logical texel address is invalid if:\n\nany element of coords is outside the range [0, textureDimensions(t, level)) for the corresponding element, or array_index is outside the range [0, textureNumLayers(t)), or level is outside the range [0, textureNumLevels(t)), or sample_index is outside the range [0, textureNumSamples(s))\n\nIf the logical texel address is invalid, the built-in function returns one of:\n\nThe data for some texel within bounds of the texture A vector (0,0,0,0) or (0,0,0,1) of the appropriate type for non-depth textures 0.0 for depth textures"
+    "description": "Reads a single texel from a texture without sampling or filtering.\n\nReturns:\n\nThe unfiltered texel data.\n\nThe logical texel address is invalid if:\n\nany element of coords is outside the range [0, textureDimensions(t, level)) for the corresponding element, or array_index is outside the range [0, textureNumLayers(t)), or level is outside the range [0, textureNumLevels(t)), or sample_index is outside the range [0, textureNumSamples(s))\n\nIf the logical texel address is invalid, the built-in function returns one of:\n\nThe data for some texel within bounds of the texture. For non-depth textures, either: The vector (0,0,0,0) or (0,0,0,1) of the appropriate type, with the texture view swizzle applied, or The vector (0,0,0,0) or (0,0,0,1) of the appropriate type, without the texture view swizzle applied. 0.0 for depth textures."
   },
   "textureNumLayers": {
     "overloads": [
@@ -4346,6 +4405,11 @@
   },
   "textureSampleLevel": {
     "overloads": [
+      {
+        "signature": "@must_use fn textureSampleLevel ( t: texture_1d<f32>, s: sampler, coords: f32, level: f32 ) -> vec4<f32>",
+        "parameterization": {},
+        "description": null
+      },
       {
         "signature": "@must_use fn textureSampleLevel ( t: texture_2d<f32>, s: sampler, coords: vec2<f32>, level: f32 ) -> vec4<f32>",
         "parameterization": {},
@@ -5062,10 +5126,15 @@
         "signature": "@must_use fn workgroupUniformLoad ( p: ptr<workgroup, T> ) -> T",
         "parameterization": {
           "T": {
-            "description": "is a concrete plain type with a fixed footprint that does not contain any atomic types"
+            "description": "is a concrete constructible type."
           }
         },
         "description": "Returns the value pointed to by p to all invocations in the workgroup. The return value is uniform. p must be a uniform value. Executes a control barrier synchronization function that affects memory and atomic operations in the workgroup address space."
+      },
+      {
+        "signature": "@must_use fn workgroupUniformLoad ( p: ptr<workgroup, atomic<T>, read_write> ) -> T",
+        "parameterization": {},
+        "description": "Atomically loads the value pointed to by p and returns it to all invocations in the workgroup. The return value is uniform. p must be a uniform value. Executes a control barrier synchronization function that affects memory and atomic operations in the workgroup address space."
       }
     ],
     "parameters": [],
